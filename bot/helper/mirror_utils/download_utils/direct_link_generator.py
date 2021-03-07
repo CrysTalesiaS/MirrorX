@@ -15,6 +15,8 @@ from os import popen
 from random import choice
 
 import requests
+import logging
+from bot import UPTOBOX_TOKEN
 from bs4 import BeautifulSoup
 
 from bot.helper.ext_utils.exceptions import DirectDownloadLinkException
@@ -32,6 +34,8 @@ def direct_link_generator(link: str):
         return cm_ru(link)
     elif 'mediafire.com' in link:
         return mediafire(link)
+    elif 'uptobox.com' in link:
+        return uptobox(link)
     elif 'osdn.net' in link:
         return osdn(link)
     elif 'github.com' in link:

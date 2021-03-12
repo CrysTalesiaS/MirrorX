@@ -104,11 +104,13 @@ def bot_help(update, context):
 /{BotCommands.CloneCommand} : Clone link Google Drive
 
 
-/{BotCommands.UsageCommand}: To see Heroku Dyno Stats (Owner only).
+/{BotCommands.UsageCommand}: ngeliat sisa penggunaan bulan ini
 
-/tshelp: Get help for torrent search module.
-/weebhelp: Get help for anime, manga and character module.
-/stickerhelp: Get help for stickers module.
+/tshelp: buat nyari link torrent
+
+/weebhelp: buat nyari anime,manga 
+
+/stickerhelp: buat bikin stiker
 '''
     sendMessage(help_string, context.bot, update)
 

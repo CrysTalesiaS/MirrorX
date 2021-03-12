@@ -25,7 +25,7 @@ from bot.helper.ext_utils.exceptions import DirectDownloadLinkException
 def direct_link_generator(link: str):
     """ direct links generator """
     if not link:
-        raise DirectDownloadLinkException("`No links found!`")
+        raise DirectDownloadLinkException("`Liknya gk ada nih :(`")
     elif 'zippyshare.com' in link:
         return zippy_share(link)
     elif 'yadi.sk' in link:
@@ -41,7 +41,7 @@ def direct_link_generator(link: str):
     elif 'github.com' in link:
         return github(link)
     else:
-        raise DirectDownloadLinkException(f'No Direct link function found for {link}')
+        raise DirectDownloadLinkException(f'Link nya gk ada/hangus {link}')
 
 
 def zippy_share(url: str) -> str:
@@ -51,7 +51,7 @@ def zippy_share(url: str) -> str:
     try:
         link = re.findall(r'\bhttps?://.*zippyshare\.com\S+', url)[0]
     except IndexError:
-        raise DirectDownloadLinkException("`No ZippyShare links found`\n")
+        raise DirectDownloadLinkException("`link zippyshare nya gk ada/hangus`\n")
     session = requests.Session()
     base_url = re.search('http.+.com', link).group()
     response = session.get(link)
@@ -76,14 +76,14 @@ def yandex_disk(url: str) -> str:
     try:
         link = re.findall(r'\bhttps?://.*yadi\.sk\S+', url)[0]
     except IndexError:
-        reply = "`No Yandex.Disk links found`\n"
+        reply = "`Yandex ngk ada/hangus`\n"
         return reply
     api = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?public_key={}'
     try:
         dl_url = requests.get(api.format(link)).json()['href']
         return dl_url
     except KeyError:
-        raise DirectDownloadLinkException("`Error: File not found / Download limit reached`\n")
+        raise DirectDownloadLinkException("`Error: File gk ada / kena limit`\n")
 
 
 def cm_ru(url: str) -> str:
@@ -93,14 +93,14 @@ def cm_ru(url: str) -> str:
     try:
         link = re.findall(r'\bhttps?://.*cloud\.mail\.ru\S+', url)[0]
     except IndexError:
-        raise DirectDownloadLinkException("`No cloud.mail.ru links found`\n")
+        raise DirectDownloadLinkException("`cloud.mail.ru nya hangus/gk ada`\n")
     command = f'vendor/cmrudl.py/cmrudl -s {link}'
     result = popen(command).read()
     result = result.splitlines()[-1]
     try:
         data = json.loads(result)
     except json.decoder.JSONDecodeError:
-        raise DirectDownloadLinkException("`Error: Can't extract the link`\n")
+        raise DirectDownloadLinkException("`Error: gk bisa ekstrak link`\n")
     dl_url = data['download']
     return dl_url
 
@@ -110,7 +110,7 @@ def uptobox(url: str) -> str:
     try:
         link = re.findall(r'\bhttps?://.*uptobox\.com\S+', url)[0]
     except IndexError:
-        raise DirectDownloadLinkException("`No Uptobox links found`\n")
+        raise DirectDownloadLinkException("`Uptobox linknya gk ada/hangus`\n")
     if UPTOBOX_TOKEN is None:
         logging.error('UPTOBOX_TOKEN not provided!')
         dl_url = url
@@ -133,7 +133,7 @@ def mediafire(url: str) -> str:
     try:
         link = re.findall(r'\bhttps?://.*mediafire\.com\S+', url)[0]
     except IndexError:
-        raise DirectDownloadLinkException("`No MediaFire links found`\n")
+        raise DirectDownloadLinkException("`link Mediafirenya gk ada/hangus`\n")
     page = BeautifulSoup(requests.get(link).content, 'lxml')
     info = page.find('a', {'aria-label': 'Download file'})
     dl_url = info.get('href')
@@ -146,7 +146,7 @@ def osdn(url: str) -> str:
     try:
         link = re.findall(r'\bhttps?://.*osdn\.net\S+', url)[0]
     except IndexError:
-        raise DirectDownloadLinkException("`No OSDN links found`\n")
+        raise DirectDownloadLinkException("`Link OSDN nya gk ada`\n")
     page = BeautifulSoup(
         requests.get(link, allow_redirects=True).content, 'lxml')
     info = page.find('a', {'class': 'mirror_link'})
@@ -164,7 +164,7 @@ def github(url: str) -> str:
     try:
         re.findall(r'\bhttps?://.*github\.com.*releases\S+', url)[0]
     except IndexError:
-        raise DirectDownloadLinkException("`No GitHub Releases links found`\n")
+        raise DirectDownloadLinkException("`Link githubnya gk bisa nih`\n")
     download = requests.get(url, stream=True, allow_redirects=False)
     try:
         dl_url = download.headers["location"]

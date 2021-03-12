@@ -41,7 +41,7 @@ airing_query = '''
             episodes
             title {
                 romaji
-                english
+                indonesia
                 native
             }
             nextAiringEpisode {
@@ -59,7 +59,7 @@ query ($id: Int) {
         id
         title {
             romaji
-            english
+            indonesia
             native
         }
     }
@@ -72,7 +72,7 @@ anime_query = '''
             id
             title {
             romaji
-            english
+            indonesia
             native
         }
         description (asHtml: false)
@@ -126,7 +126,7 @@ query ($id: Int,$search: String) {
         id
         title {
             romaji
-            english
+            indonesia
             native
         }
         description (asHtml: false)

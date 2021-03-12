@@ -433,11 +433,11 @@ def stickhelp(update, context):
 '''
     update.effective_message.reply_photo("https://telegra.ph/file/db03910496f06094f1f7a.jpg", help_string, parse_mode=ParseMode.MARKDOWN)
 
-STICKERID_HANDLER = CommandHandler("stickerid", stickerid)
-GETSTICKER_HANDLER = CommandHandler("getsticker", getsticker)
-KANG_HANDLER = CommandHandler("kang", kang)
-STICKERS_HANDLER = CommandHandler("stickers", cb_sticker)
-STICKHELP_HANDLER = CommandHandler("stickerhelp", stickhelp)
+STICKERID_HANDLER = CommandHandler("idstiker", stickerid)
+GETSTICKER_HANDLER = CommandHandler("dapatstiker", getsticker)
+KANG_HANDLER = CommandHandler("curry", kang)
+STICKERS_HANDLER = CommandHandler("sticker", cb_sticker)
+STICKHELP_HANDLER = CommandHandler("tolongstiker", stickhelp)
 
 
 dispatcher.add_handler(STICKERS_HANDLER)

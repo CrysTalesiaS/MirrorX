@@ -13,9 +13,9 @@ def shorten(description, info = 'anilist.co'):
     msg = "" 
     if len(description) > 700:
            description = description[0:500] + '....'
-           msg += f"\n*Description*: _{description}_[Read More]({info})"
+           msg += f"\n*Deskripsi*: _{description}_[Baca Lagi]({info})"
     else:
-          msg += f"\n*Description*:_{description}_"
+          msg += f"\n*Deskripsi*:_{description}_"
     return msg
 
 
@@ -174,12 +174,12 @@ def anime(update: Update, context: CallbackContext):
         image = json.get('bannerImage', None)
         if trailer:
             buttons = [
-                [InlineKeyboardButton("More Info", url=info),
-                InlineKeyboardButton("Trailer 🎬", url=trailer)]
+                [InlineKeyboardButton("Informasi Lebih", url=info),
+                InlineKeyboardButton("Trailernya 🎬", url=trailer)]
                 ]
         else:
             buttons = [
-                [InlineKeyboardButton("More Info", url=info)]
+                [InlineKeyboardButton("Informasi Lebih", url=info)]
             ]
         if image:
             try:
@@ -195,7 +195,7 @@ def character(update: Update, _):
     message = update.effective_message
     search = message.text.split(' ', 1)
     if len(search) == 1:
-        update.effective_message.reply_text('Format : /character < character name >') 
+        update.effective_message.reply_text('Caranya : /character < Nama Karakter >') 
         return
     search = search[1]
     variables = {'query': search}
@@ -216,7 +216,7 @@ def manga(update: Update, _):
     message = update.effective_message
     search = message.text.split(' ', 1)
     if len(search) == 1:
-        update.effective_message.reply_text('Format : /manga < manga name >') 
+        update.effective_message.reply_text('Caranya : /manga < nama manga >') 
         return
     search = search[1]
     variables = {'search': search}
@@ -229,15 +229,15 @@ def manga(update: Update, _):
             msg += f"*{title}*"
             if title_native:
                 msg += f"(`{title_native}`)"
-        if start_date: msg += f"\n*Start Date* - `{start_date}`"
+        if start_date: msg += f"\n*Dirilis* - `{start_date}`"
         if status: msg += f"\n*Status* - `{status}`"
-        if score: msg += f"\n*Score* - `{score}`"
-        msg += '\n*Genres* - '
+        if score: msg += f"\n*Skor* - `{score}`"
+        msg += '\n*Genrenya* - '
         for x in json.get('genres', []): msg += f"{x}, "
         msg = msg[:-2]
         info = json['siteUrl']
         buttons = [
-                [InlineKeyboardButton("More Info", url=info)]
+                [InlineKeyboardButton("Informasi Lebih", url=info)]
             ]
         image = json.get("bannerImage", False)
         msg += f"_{json.get('description', None)}_"
@@ -252,17 +252,17 @@ def manga(update: Update, _):
 @run_async
 def weebhelp(update, context):
     help_string = '''
-• `/al`*:* search anime
-• `/chr`*:* search character
-• `/mng`*:* search manga
+• `/anim`*:* ngecari anime
+• `/karakter`*:* ngecari karakter anime
+• `/manga`*:* ngecari manga
 '''
     update.effective_message.reply_photo("https://telegra.ph/file/db03910496f06094f1f7a.jpg", help_string, parse_mode=ParseMode.MARKDOWN)
 
 
-ANIME_HANDLER = CommandHandler("al", anime)
-CHARACTER_HANDLER = CommandHandler("chr", character)
-MANGA_HANDLER = CommandHandler("mng", manga)
-WEEBHELP_HANDLER = CommandHandler("weebhelp", weebhelp)
+ANIME_HANDLER = CommandHandler("anim", anime)
+CHARACTER_HANDLER = CommandHandler("karakter", character)
+MANGA_HANDLER = CommandHandler("manga", manga)
+WEEBHELP_HANDLER = CommandHandler("wibu", weebhelp)
 
 dispatcher.add_handler(ANIME_HANDLER)
 dispatcher.add_handler(CHARACTER_HANDLER)

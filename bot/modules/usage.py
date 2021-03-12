@@ -64,7 +64,7 @@ def dyno_usage(update, context):
             
             sendMessage(
                 f"<b>Penggunaan Dyno buat aplikasi </b> <code>{app.name}</code> :\n"
-                f"• <code>{AppHours}</code> <b>Jam </b> <code>{AppMinutes}</code> <b>Menit </b> <code>{AppSecond}<code> <b>Detik- {AppPercent}%</b>\n\n"
+                f"• <code>{AppHours}</code> <b>Jam </b> <code>{AppMinutes}</code> <b>Menit </b> <code>{AppSeconds}<code> <b>Detik- {AppPercent}%</b>\n\n"
                 "<b>Sisa Kouta/Dyno bot:</b>\n"
                 f"• <code>{hours}</code> <b>Jam </b> <code>{minutes}</code> <b>Menit </b> <code>{AppSecond}<code> <b>Detik- {quota_percent}%</b>",
                 context.bot,

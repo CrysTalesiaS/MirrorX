@@ -157,7 +157,7 @@ def anime(update: Update, context: CallbackContext):
     variables = {'search' : search}
     json = requests.post(url, json={'query': anime_query, 'variables': variables}).json()['data'].get('Media', None)
     if json:
-        msg = f"*{json['judul']['romaji']}*(`{json['judul']['native']}`)\n*Type*: {json['format']}\n*Status*: {json['status']}\n*Episodes*: {json.get('episode', 'N/A')}\n*Duration*: {json.get('durasi', 'N/A')} Per Ep.\n*Score*: {json['skor rata-rata']}\n*Genres*: `"
+        msg = f"*{json['title']['romaji']}*(`{json['title']['native']}`)\n*Type*: {json['format']}\n*Status*: {json['status']}\n*Episodes*: {json.get('episodes', 'N/A')}\n*Duration*: {json.get('duration', 'N/A')} Per Ep.\n*Score*: {json['averageScore']}\n*Genres*: `"
         for x in json['genres']: msg += f"{x}, "
         msg = msg[:-2] + '`\n'
         msg += "*Studio*: `"
@@ -201,8 +201,8 @@ def character(update: Update, _):
     variables = {'query': search}
     json = requests.post(url, json={'query': character_query, 'variables': variables}).json()['data'].get('Character', None)
     if json:
-        msg = f"*{json.get('nama').get('full')}*(`{json.get('nama').get('native')}`)\n"
-        description = f"{json['deskripsi']}"
+        msg = f"*{json.get('name').get('full')}*(`{json.get('name').get('native')}`)\n"
+        description = f"{json['description']}"
         site_url = json.get('siteUrl')
         msg += shorten(description, site_url)
         image = json.get('image', None)

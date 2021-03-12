@@ -138,8 +138,8 @@ async def nyaa_callback(client, callback_query):
 @run_async
 def searchhelp(update, context):
     help_string = '''
-• /ts <i>[search query]</i>
-• /nyaa <i>[search query]</i>
+• /torrent <i>[search query]</i>
+• /meong <i>[search query]</i>
 • /nyaasi <i>[search query]</i>
 
 • /sts <i>[search query]</i>

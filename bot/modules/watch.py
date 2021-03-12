@@ -14,8 +14,8 @@ def _watch(bot: Bot, update: Update, args: list, isTar=False):
     try:
         link = args[0]
     except IndexError:
-        msg = f"/{BotCommands.WatchCommand} [yt_dl supported link] [quality] to mirror with youtube_dl.\n\n"
-        msg += "Example of quality :- audio, 144, 360, 720, 1080.\nNote :- Quality is optional"
+        msg = f"/{BotCommands.WatchCommand} (link yt) (kualitas) perintah biar bot nge mirror dari link yy.\n\n"
+        msg += "Contoh Kualitas : 144,240,360,480,720,1080,2160p sama audio.\nNote :- Kualitas cuma tambahan doang"
         sendMessage(msg, bot, update)
         return
     try:

@@ -106,11 +106,11 @@ def bot_help(update, context):
 
 /{BotCommands.UsageCommand}: ngeliat sisa penggunaan bulan ini
 
-/tshelp: buat nyari link torrent
+/tolongturrent: buat nyari link torrent
 
-/weebhelp: buat nyari anime,manga 
+/wibu: buat nyari anime,manga 
 
-/stickerhelp: buat bikin stiker
+/tolongstiker: buat bikin stiker
 '''
     sendMessage(help_string, context.bot, update)
 

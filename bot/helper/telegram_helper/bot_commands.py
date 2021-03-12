@@ -21,5 +21,6 @@ class _BotCommands:
         self.TarWatchCommand = 'tarwatch'
         self.deleteCommand = 'hapus'
         self.clnCommand = 'cln'
+        self.UsageCommand = 'Penggunaan'
         
 BotCommands = _BotCommands()

@@ -1,11 +1,11 @@
 import shutil, psutil
 import signal
 import pickle
-
+from bot import app
 from os import execl, path, remove
 from sys import executable
 import time
-
+from pyrogram import idle
 from telegram.ext import CommandHandler, run_async
 from bot import dispatcher, updater, botStartTime
 from bot.helper.ext_utils import fs_utils
@@ -13,7 +13,7 @@ from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import *
 from .helper.ext_utils.bot_utils import get_readable_file_size, get_readable_time
 from .helper.telegram_helper.filters import CustomFilters
-from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, delete, speedtest, clone
+from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, anime, stickers, search, delete, speedtest, usage
 
 
 @run_async
@@ -102,6 +102,13 @@ def bot_help(update, context):
 /{BotCommands.SpeedCommand} : Cek kecepatan internet
 
 /{BotCommands.CloneCommand} : Clone link Google Drive
+
+
+/{BotCommands.UsageCommand}: To see Heroku Dyno Stats (Owner only).
+
+/tshelp: Get help for torrent search module.
+/weebhelp: Get help for anime, manga and character module.
+/stickerhelp: Get help for stickers module.
 '''
     sendMessage(help_string, context.bot, update)
 

@@ -23,3 +23,4 @@ deezloader
 heroku3
 feedparser
 natsort
+bs4

@@ -11,7 +11,7 @@ tenacity>=6.0.0
 python-magic
 beautifulsoup4>=4.8.2,<4.8.10
 Pyrogram
-TgCrypto>=1.1.1,<1.1.10
+TgCrypto
 psycopg2-binary
 youtube_dl
 lxml
@@ -24,3 +24,4 @@ heroku3
 feedparser
 natsort
 bs4
+Pillow>=4.2.0

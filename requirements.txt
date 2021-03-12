@@ -25,3 +25,4 @@ feedparser
 natsort
 bs4
 Pillow>=4.2.0
+aiohttp

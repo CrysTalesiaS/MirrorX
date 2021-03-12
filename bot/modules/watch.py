@@ -10,45 +10,29 @@ from bot.helper.telegram_helper.filters import CustomFilters
 import threading
 
 
-def _watch(bot: Bot, update, isTar=False):
-    mssg = update.message.text
-    message_args = mssg.split(' ')
-    name_args = mssg.split('|')
+def _watch(bot: Bot, update: Update, args: list, isTar=False):
     try:
-        link = message_args[1]
+        link = args[0]
     except IndexError:
-        msg = f"/{BotCommands.WatchCommand} [Bisa pake link youtube] [Kualitas] |[Kustomnama] Biar di mirror in pake link youtube.\n\n"
-        msg += "<b>Note :- Kualitas dan kustom nama itu pelengkap aja ya</b>\n\nMisalkan aja :- audio, 144, 240, 360, 480, 720, 1080, 2160."
-        msg += "\n\nKalo pengen pake Nama kustom bisa dipake sehabis |"
-        msg += f"\n\nExample :-\n<code>/{BotCommands.WatchCommand} https://youtu.be/ocX2FN1nguA 720 |Ini videoku</code>\n\n"
-        msg += "File yanh kamu minta bakalan diupload dengan kualitas 720p dengan nama<b>Ini videoku</b>"
+        msg = f"/{BotCommands.WatchCommand} [yt_dl supported link] [quality] to mirror with youtube_dl.\n\n"
+        msg += "Example of quality :- audio, 144, 360, 720, 1080.\nNote :- Quality is optional"
         sendMessage(msg, bot, update)
         return
     try:
-      if "|" in mssg:
-        mssg = mssg.split("|")
-        qual = mssg[0].split(" ")[2]
-        if qual == "":
-          raise IndexError
-      else:
-        qual = message_args[2]
+      qual = args[1]
       if qual != "audio":
         qual = f'bestvideo[height<={qual}]+bestaudio/best[height<={qual}]'
     except IndexError:
       qual = "bestvideo+bestaudio/best"
-    try:
-      name = name_args[1]
-    except IndexError:
-      name = ""
     reply_to = update.message.reply_to_message
     if reply_to is not None:
         tag = reply_to.from_user.username
     else:
         tag = None
-    pswd = ""
-    listener = MirrorListener(bot, update, pswd, isTar, tag)
+
+    listener = MirrorListener(bot, update, isTar, tag)
     ydl = YoutubeDLHelper(listener)
-    threading.Thread(target=ydl.add_download,args=(link, f'{DOWNLOAD_DIR}{listener.uid}', qual, name)).start()
+    threading.Thread(target=ydl.add_download,args=(link, f'{DOWNLOAD_DIR}{listener.uid}', qual)).start()
     sendStatusMessage(update, bot)
     if len(Interval) == 0:
         Interval.append(setInterval(DOWNLOAD_STATUS_UPDATE_INTERVAL, update_all_messages))
@@ -56,16 +40,18 @@ def _watch(bot: Bot, update, isTar=False):
 
 @run_async
 def watchTar(update, context):
-    _watch(context.bot, update, True)
+    _watch(context.bot, update, context.args, True)
 
 
 def watch(update, context):
-    _watch(context.bot, update)
+    _watch(context.bot, update, context.args)
 
 
 mirror_handler = CommandHandler(BotCommands.WatchCommand, watch,
+                                pass_args=True,
                                 filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 tar_mirror_handler = CommandHandler(BotCommands.TarWatchCommand, watchTar,
+                                    pass_args=True,
                                     filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 dispatcher.add_handler(mirror_handler)
 dispatcher.add_handler(tar_mirror_handler)

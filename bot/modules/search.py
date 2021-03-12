@@ -148,5 +148,5 @@ def searchhelp(update, context):
     update.effective_message.reply_photo("https://telegra.ph/file/db03910496f06094f1f7a.jpg", help_string, parse_mode=ParseMode.HTML)
     
     
-SEARCHHELP_HANDLER = CommandHandler("tshelp", searchhelp)
+SEARCHHELP_HANDLER = CommandHandler("tolongtorrent", searchhelp)
 dispatcher.add_handler(SEARCHHELP_HANDLER)

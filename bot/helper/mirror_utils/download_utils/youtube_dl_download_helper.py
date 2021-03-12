@@ -19,10 +19,7 @@ class MyLogger:
         # Hack to fix changing changing extension
         match = re.search(r'.ffmpeg..Merging formats into..(.*?).$', msg)
         if match and not self.obj.is_playlist:
-            newname = match.group(1)
-            newname = newname.split("/")
-            newname = newname[-1]
-            self.obj.name = newname
+            self.obj.name = match.group(1)
 
     @staticmethod
     def warning(msg):
@@ -67,11 +64,11 @@ class YoutubeDLHelper(DownloadHelper):
 
     def __onDownloadProgress(self, d):
         if self.is_cancelled:
-            raise ValueError("Download dibatalin krn error")
-        if d['status'] == "Selesai":
+            raise ValueError("Cancelling Download..")
+        if d['status'] == "finished":
             if self.is_playlist:
                 self.last_downloaded = 0
-        elif d['status'] == "Lagi didownload":
+        elif d['status'] == "downloading":
             with self.__resource_lock:
                 self.__download_speed = d['speed']
                 try:
@@ -101,17 +98,14 @@ class YoutubeDLHelper(DownloadHelper):
     def onDownloadError(self, error):
         self.__listener.onDownloadError(error)
 
-    def extractMetaData(self, link, qual, name):
+    def extractMetaData(self, link, qual):
         if 'hotstar' or 'sonyliv' in link:
             self.opts['geo_bypass_country'] = 'IN'
 
         with YoutubeDL(self.opts) as ydl:
             try:
                 result = ydl.extract_info(link, download=False)
-                if name == "":
-                    name = ydl.prepare_filename(result)
-                else:
-                    name = name
+                name = ydl.prepare_filename(result)
                 # noobway hack for changing extension after converting to mp3
                 if qual == "audio":
                   name = name.replace(".mp4", ".mp3").replace(".webm", ".mp3")
@@ -147,16 +141,16 @@ class YoutubeDLHelper(DownloadHelper):
                     return
             self.__onDownloadComplete()
         except ValueError:
-            LOGGER.info("Download dicancel krn error")
-            self.onDownloadError("Download dicancel krn error")
+            LOGGER.info("Download Cancelled by User!")
+            self.onDownloadError("Download Cancelled by User!")
 
-    def add_download(self, link, path, qual, name):
+    def add_download(self, link, path, qual):
         pattern = '^.*(youtu\.be\/|youtube.com\/)(playlist?)'
         if re.match(pattern, link):
             self.opts['ignoreerrors'] = True
         self.__onDownloadStart()
-        self.extractMetaData(link, qual, name)
-        LOGGER.info(f"Downloading dengan link youtube, sabar ya dulu : {link}")
+        self.extractMetaData(link, qual)
+        LOGGER.info(f"Downloading with YT-DL: {link}")
         self.__gid = f"{self.vid_id}{self.__listener.uid}"
         if qual == "audio":
           self.opts['format'] = 'bestaudio/best'

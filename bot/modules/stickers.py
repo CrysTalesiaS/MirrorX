@@ -431,7 +431,7 @@ def stickhelp(update, context):
 • `/curry`*:* balas sebuah pesan stiker nanti aku curry hehe ><
 • `/sticker`*:* Cari stiker yang kamu pengen
 '''
-    update.effective_message.reply_photo("https://t.me/animeeindonesia/1157161", help_string, parse_mode=ParseMode.MARKDOWN)
+    update.effective_message.reply_photo("https://telegra.ph/file/f92c503beb218f76ad987.jpg", help_string, parse_mode=ParseMode.MARKDOWN)
 
 STICKERID_HANDLER = CommandHandler("idstiker", stickerid)
 GETSTICKER_HANDLER = CommandHandler("dapatstiker", getsticker)

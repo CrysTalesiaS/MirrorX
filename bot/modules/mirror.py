@@ -29,8 +29,8 @@ ariaDlManager = AriaDownloadHelper()
 ariaDlManager.start_listener()
 
 async def Upload (start_t):
-start_t = datetime.now()
-(datetime.now() - start_t).seconds
+    start_t = datetime.now()
+    (datetime.now() - start_t).seconds
 
 class MirrorListener(listeners.MirrorListeners):
     def __init__(self, bot, update, isTar=False, tag=None, extract=False):

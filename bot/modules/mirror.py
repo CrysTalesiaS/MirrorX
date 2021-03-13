@@ -1,7 +1,6 @@
 import requests
 from telegram.ext import CommandHandler, run_async
 from telegram import InlineKeyboardMarkup
-from datetime import datetime
 from bot import Interval, INDEX_URL, BUTTON_THREE_NAME, BUTTON_THREE_URL, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, BLOCK_MEGA_LINKS
 from bot import dispatcher, DOWNLOAD_DIR, DOWNLOAD_STATUS_UPDATE_INTERVAL, download_dict, download_dict_lock, SHORTENER, SHORTENER_API
 from bot.helper.ext_utils import fs_utils, bot_utils
@@ -167,7 +166,7 @@ class MirrorListener(listeners.MirrorListeners):
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f'\n\nYang makai botnya : {uname} makasih ya dah makai botnya :3 download kamu selesai dalam waktu {d_in} detik'
+                msg += f'\n\nYang makai botnya : {uname} makasih ya dah makai botnya :3'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:

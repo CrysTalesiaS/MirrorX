@@ -256,7 +256,7 @@ def weebhelp(update, context):
 • `/karakter`*:* ngecari karaktermaime
 • `/komik`*:* ngecari manga
 '''
-    update.effective_message.reply_phto("https://telegra.ph/file/97f0fb6ad189df73f39c4.jpg", help_string, parse_mode=ParseMode.MARKDOWN)
+    update.effective_message.reply_photo("https://telegra.ph/file/97f0fb6ad189df73f39c4.jpg", help_string, parse_mode=ParseMode.MARKDOWN)
 
 
 ANIME_HANDLER = CommandHandler("anim", anime)

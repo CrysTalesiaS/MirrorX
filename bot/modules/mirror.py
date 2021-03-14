@@ -28,9 +28,6 @@ from datetime import datetime
 ariaDlManager = AriaDownloadHelper()
 ariaDlManager.start_listener()
 
-async def finalize(start_t):
-end_t = datetime.now()
-        m_s = (end_t - start_t).seconds
 
 class MirrorListener(listeners.MirrorListeners):
     def __init__(self, bot, update, isTar=False, tag=None, extract=False):

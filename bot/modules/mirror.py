@@ -171,11 +171,13 @@ async def finalize(message: Message, msg: Message, start_t):
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
                  await message.edit(f"Diupload sama {uname} makasih ya udh gunain botnya. Upload kamu berjalan selama {d_in} detik")
+            try:
+                d_in = await handle_download(message, resource)
             else:
                 end_t = datetime.now()
                 m_s = (end_t - start_t).seconds
-            try:
-                d_in = await handle_download(message, resource)
+
+
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:

@@ -138,7 +138,8 @@ class MirrorListener(listeners.MirrorListeners):
 
     def onUploadProgress(self):
         pass
-
+    
+async def finalize(message: Message, msg: Message, start_t):
     def onUploadComplete(self, link: str, size):
         with download_dict_lock:
             msg = f'<b>Nama File: </b><code>{download_dict[self.uid].name()}</code>\n<b>Ukuran File : </b><code>{size}</code>'
@@ -169,7 +170,12 @@ class MirrorListener(listeners.MirrorListeners):
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f'\n\nYang makai botnya : {uname} makasih ya dah makai botnya :3'
+                 await message.edit(f"Diupload sama {uname} makasih ya udh gunain botnya. Upload kamu berjalan selama {d_in} detik")
+            else:
+                end_t = datetime.now()
+                m_s = (end_t - start_t).seconds
+            try:
+                d_in = await handle_download(message, resource)
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:

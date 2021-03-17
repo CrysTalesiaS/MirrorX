@@ -47,5 +47,3 @@ def nhentai(update, context):
     help_string = '''
 • `/Hentai`*=* Testing commit, cari hentai dengan menggunakan kode 
 
-nhentai_handler = CommandHandler(command=BotCommand.NhentaiCommand, Hentai,
-                                  filters=CustomFilters.authorized_chat)

@@ -49,4 +49,3 @@ def nhentai(update, context):
 
 nhentai_handler = CommandHandler(command=BotCommand.NhentaiCommand, Hentai,
                                   filters=CustomFilters.authorized_chat)
-dispatcher.add_handler(nhentai_handler)

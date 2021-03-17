@@ -42,8 +42,5 @@ async def _(event):
         await event.edit("`Error: ``@nHentaiBot`` is not responding!`")
 
 
-@run_async
-def nhentai(update, context):
-    help_string = '''
-• `/Hentai`*=* Testing commit, cari hentai dengan menggunakan kode 
+
 

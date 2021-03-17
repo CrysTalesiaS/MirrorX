@@ -46,6 +46,6 @@ CMD_HELP.update(
     {"nhentai": ">`.nhentai` <link / code>" "\nUsage: view nhentai in telegra.ph XD\n"}
 )
 
-nhentai_handler = CommandHandler(command=BotCommand.NhentaiCommand, nhentai,
+Nhentai_handler = CommandHandler(command=BotCommand.NhentaiCommand, Nhentai,
                                   filters=CustomFilters.authorized_chat)
 dispatcher.add_handler(nhentai_handler)

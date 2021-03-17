@@ -8,9 +8,11 @@ from asyncio.exceptions import TimeoutError
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-
-from userbot import CMD_HELP, bot
-from userbot.events import register
+from bot.helper.telegram_helper.bot_commands import BotCommands
+from bot.helper.telegram_helper.filters import CustomFilters
+from bot.helper.telegram_helper.message_utils import sendMessage
+from telegram import update
+from telegram.ext import run_async, CommandHandler
 
 
 @register(outgoing=True, pattern=r"^\.nhentai(?: |$)(.*)")
@@ -43,3 +45,7 @@ async def _(event):
 CMD_HELP.update(
     {"nhentai": ">`.nhentai` <link / code>" "\nUsage: view nhentai in telegra.ph XD\n"}
 )
+
+nhentai_handler = CommandHandler(command=BotCommand,NhentaiCommand, Nhentai
+                                  filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
+dispatcher.add_handler(nhentai_handler)

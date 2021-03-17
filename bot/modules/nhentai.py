@@ -47,5 +47,5 @@ CMD_HELP.update(
 )
 
 nhentai_handler = CommandHandler(command=BotCommand,NhentaiCommand, Nhentai
-                                  filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
+                                  filters=CustomFilters.authorized_chat | CustomFilterser
 dispatcher.add_handler(nhentai_handler)

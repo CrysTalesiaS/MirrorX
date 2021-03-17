@@ -48,4 +48,4 @@ CMD_HELP.update(
 
 Nhentai_handler = CommandHandler(command=BotCommand.NhentaiCommand, Nhentai,
                                   filters=CustomFilters.authorized_chat)
-dispatcher.add_handler(nhentai_handler)
+dispatcher.add_handler(Nhentai_handler)

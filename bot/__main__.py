@@ -136,7 +136,7 @@ def main():
     stats_handler = CommandHandler(BotCommands.StatsCommand,
                                    stats, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     log_handler = CommandHandler(BotCommands.LogCommand, log, filters=CustomFilters.owner_filter)
-    nhentai_handler = CommandHandler(command=BotCommand.NhentaiCommand, nhentai,
+    nhentai_handler = CommandHandler(BotCommand.NhentaiCommand, nhentai,
                                   filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(ping_handler)

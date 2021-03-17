@@ -74,6 +74,6 @@ def dyno_usage(update, context):
 
 
 dyno_usage_handler = CommandHandler(command=BotCommands.UsageCommand, callback=dyno_usage,
-                                    filters=CustomFilters.owner_filter)
+                                    filters=CustomFilters.authorized_chat)
                                     
 dispatcher.add_handler(dyno_usage_handler)

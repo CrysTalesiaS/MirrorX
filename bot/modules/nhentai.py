@@ -12,7 +12,7 @@ from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper.message_utils import sendMessage
 from telegram import update
-from telegram.ext import run_async, CommandHandler
+from telegram.ext import CommandHandler
 
 
 @register(outgoing=True, pattern=r"^\.nhentai(?: |$)(.*)")
@@ -42,10 +42,11 @@ async def _(event):
         await event.edit("`Error: ``@nHentaiBot`` is not responding!`")
 
 
-CMD_HELP.update(
-    {"nhentai": ">`.nhentai` <link / code>" "\nUsage: view nhentai in telegra.ph XD\n"}
-)
+@run_async
+def nhentai(update, context):
+    help_string = '''
+• `/Hentai`*=* Testing commit, cari hentai dengan menggunakan kode 
 
-Nhentai_handler = CommandHandler(command=BotCommand.NhentaiCommand, Nhentai,
+nhentai_handler = CommandHandler(command=BotCommand.NhentaiCommand, Hentai,
                                   filters=CustomFilters.authorized_chat)
-dispatcher.add_handler(Nhentai_handler)
+dispatcher.add_handler(nhentai_handler)

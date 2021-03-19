@@ -4,7 +4,7 @@ import pickle
 from bot import app
 from os import execl, path, remove
 from sys import executable
-import time
+import datetime
 import pytz
 from datetime import datetime
 from pyrogram import idle

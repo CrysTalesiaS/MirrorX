@@ -22,6 +22,5 @@ class _BotCommands:
         self.deleteCommand = 'hapus'
         self.clnCommand = 'cln'
         self.UsageCommand = 'Penggunaan'
-        self.NhentaiCommand = 'Hentai'
         
 BotCommands = _BotCommands()

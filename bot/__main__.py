@@ -5,6 +5,8 @@ from bot import app
 from os import execl, path, remove
 from sys import executable
 import time
+import pytz
+from datetime import datetime
 from pyrogram import idle
 from telegram.ext import CommandHandler, run_async
 from bot import dispatcher, updater, botStartTime
@@ -15,10 +17,13 @@ from .helper.ext_utils.bot_utils import get_readable_file_size, get_readable_tim
 from .helper.telegram_helper.filters import CustomFilters
 from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, anime, stickers, search, delete, speedtest, usage
 
+now=datetime.now(pytz.timezone('Asia/Jakarta'))
+
 
 @run_async
 def stats(update, context):
     currentTime = get_readable_time((time.time() - botStartTime))
+    current = strftime('%Y/%m/%d &I:%M:%P')
     total, used, free = shutil.disk_usage('.')
     total = get_readable_file_size(total)
     used = get_readable_file_size(used)
@@ -31,7 +36,8 @@ def stats(update, context):
     stats = f'<b>Bot Menyala Sejak ⌚:</b> {currentTime}\n' \
             f'<b>Sisa Penyimpanan🗄️:</b> {total}\n' \
             f'<b>Memory bot terpakai 🗃️:</b> {used}  ' \
-            f'<b>Ruang Kosong Bot 🗃️:</b> {free}\n\n' \
+            f'<b>Ruang Kosong Bot 🗃️:</b> {free}\n' \
+            f'<b>Waktu bot menyala pertama kali 👨‍💻:</b><u> {current}\n\n' \
             f'📇Pengunaan data bot📇\n<b>Uploaded :</b> {sent}\n' \
             f'<b>Yang lagi didownload:</b> {recv}\n\n' \
             f'<b>CPU 🖥️:</b> {cpuUsage}% ' \

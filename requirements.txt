@@ -27,3 +27,5 @@ bs4
 Pillow>=4.2.0
 aiohttp
 telethon
+datetime
+pytz

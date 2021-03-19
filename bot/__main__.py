@@ -109,7 +109,7 @@ def bot_help(update, context):
 
 /{BotCommands.CloneCommand} : Clone link Google Drive
 
-/{BotCommands.NhentaiCommand}: testing commit. for search hentai command
+
 
 /{BotCommands.UsageCommand}: ngeliat sisa penggunaan bulan ini
 

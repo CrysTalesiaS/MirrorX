@@ -37,7 +37,7 @@ def stats(update, context):
             f'<b>Sisa Penyimpanan🗄️:</b> {total}\n' \
             f'<b>Memory bot terpakai 🗃️:</b> {used}  ' \
             f'<b>Ruang Kosong Bot 🗃️:</b> {free}\n' \
-            f'<b>Waktu bot menyala pertama kali 👨‍💻:</b><u> {current}\n\n' \
+            f'<b>Waktu bot menyala pertama kali 👨‍💻:</b> {current}\n\n' \
             f'📇Pengunaan data bot📇\n<b>Uploaded :</b> {sent}\n' \
             f'<b>Yang lagi didownload:</b> {recv}\n\n' \
             f'<b>CPU 🖥️:</b> {cpuUsage}% ' \
@@ -53,6 +53,16 @@ def start(update, context):
 Type /{BotCommands.HelpCommand} kalo pengen liat perintah bot
 '''
     sendMessage(start_string, context.bot, update)
+    
+
+@run_async
+def start(update, context):
+    start_string = f'''
+Hay,aku [Aulia](t.me/AnnisaAwlia), yuk ikut grup mirror aku [Kaca/Mirror](t.me/BotMirror)
+Ketik /{BotCommands.HelpCommand} biar bisa liat perintah bot
+'''
+    update.effective_message.reply_photo("https://telegra.ph/file/583c0e1fc0e4931d6ce56.jpg", start_string, parse_mode=ParseMode.MARKDOWN)
+
 
 
 @run_async

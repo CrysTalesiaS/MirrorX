@@ -98,7 +98,6 @@ def log(update, context):
 @run_async
 def systemstats(update, context):
     uname = platform.uname()
-    build = platform.python.version()
     system = platform.system()
     alias = platform.system_alias()
     status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \

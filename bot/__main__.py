@@ -7,7 +7,6 @@ import platform
 from platform import python_version
 from  platform import python_compiler
 from platform import python_build
-from platform import architecture
 import pickle
 from bot import app
 from threading import Thread
@@ -113,8 +112,7 @@ def systemstats(update, context):
              f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
              f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n' \
              f'<b>Kompiler:</b> <code>' + python_compiler() + '</code>\n' \
-             f'<b>Build:</b> <code>' + python_build() + '</code>\n' \
-             f'<b>Arsitektur:</b> <code>' + architecture() + '</code>\n'
+             f'<b>Build:</b> <code>' + python_build() + '</code>\n'
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )

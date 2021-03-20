@@ -170,7 +170,7 @@ def main():
         remove('restart.pickle')
 
     start_handler = CommandHandler(BotCommands.StartCommand, start,
-                                   filters=
+                                   filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     ping_handler = CommandHandler(BotCommands.PingCommand, ping,
                                   filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     restart_handler = CommandHandler(BotCommands.RestartCommand, restart,

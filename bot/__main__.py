@@ -182,8 +182,9 @@ def main():
     stats_handler = CommandHandler(BotCommands.StatsCommand,
                                    stats, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     log_handler = CommandHandler(BotCommands.LogCommand, log, filters=CustomFilters.owner_filter)
-    system_handler = CommandHandler(BotCommands.SystemCommand, system,
-                                    filters=CustomFilters.authorized_chat, run_async=True)
+    SYS_STATUS_HANDLER = CommandHandler(
+    "system", system_status, filters=CustomFilters.dev_filter, run_async=True
+)
 
 
     dispatcher.add_handler(start_handler)

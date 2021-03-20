@@ -5,7 +5,6 @@ import subprocess
 import signal
 import platform
 from platform import python_version
-from platform import python_build
 import pickle
 from bot import app
 from threading import Thread
@@ -109,11 +108,13 @@ def systemstats(update, context):
              f'<b>Machine:</b> <code>' + str(uname.machine) + '</code>\n' \
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
              f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
-             f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n' \
-             f'<b>Build:</b> <code>' + python_build() + '</code>\n'
+             f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n'
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )
+    
+    update.effective_message.reply_photo("https://telegra.ph/file/78f7a3309e2e5444ee043.jpg", status, parse_mode=ParseMode.MARKDOWN)
+
 
 @run_async
 def bot_help(update, context):

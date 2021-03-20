@@ -101,13 +101,14 @@ def systemstats(update, context):
     uname = platform.uname()
     system = platform.system(
     version = platform.python_version()
-    status = f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
+    status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
+             f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
              f'<b>Release:</b> <code>' + str(uname.release) + '</code>\n' \
              f'<b>Version:</b> <code>' + str(uname.version) + '</code>\n' \
              f'<b>Machine:</b> <code>' + str(uname.machine) + '</code>\n' \
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
-             f'<b>Python version:</b> <code>' + python_version() + '</code.\n' \
+             f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
              f'<b>Piton Kompiler:</b> <code>' + python_compiler() + '</code>n' \
              f'<b>Major Piton:</b> <code>' + str(version.major) + '</code>\n' \
              f'<b>Minor Piton:</b> <code>' + str(version.minor) + '</code>\n' \

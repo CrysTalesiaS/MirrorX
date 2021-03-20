@@ -107,7 +107,7 @@ def systemstats(update, context):
              f'<b>Version:</b> <code>' + str(uname.version) + '</code>\n' \
              f'<b>Machine:</b> <code>' + str(uname.machine) + '</code>\n' \
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
-             f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
+             f'<b>Python version:</b> <code>' + python_version() + '</code>\n'
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )

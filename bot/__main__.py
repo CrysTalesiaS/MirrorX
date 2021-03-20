@@ -7,13 +7,14 @@ import platform
 from platform import python_version
 import pickle
 from bot import app
+from threading import Thread
 from os import execl, path, remove
 from sys import executable
 import datetime
 import pytz
 from datetime import datetime
 from pyrogram import idle
-from telegram.ext import CommandHandler, run_async
+from telegram.ext import CommandHandler, run_async, Filters
 from bot import dispatcher, updater, botStartTime
 from bot.helper.ext_utils import fs_utils
 from telegram import ParseMode, __version__
@@ -115,7 +116,6 @@ def system(update, context):
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )
-dispatcher.addhandler(system_handler)
 
 @run_async
 def bot_help(update, context):
@@ -182,7 +182,7 @@ def main():
                                    stats, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     log_handler = CommandHandler(BotCommands.LogCommand, log, filters=CustomFilters.owner_filter)
     system_handler = CommandHandler(BotCommands.SystemCommand, system,
-                                    filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
+                                    filters=CustomFilters.authorized_chat, run_async=True)
 
 
     dispatcher.add_handler(start_handler)
@@ -191,6 +191,7 @@ def main():
     dispatcher.add_handler(help_handler)
     dispatcher.add_handler(stats_handler)
     dispatcher.add_handler(log_handler)
+    dispatcher.add_handler(system_handler)
     updater.start_polling()
     LOGGER.info("Bot Started!")
     signal.signal(signal.SIGINT, fs_utils.exit_clean_up)

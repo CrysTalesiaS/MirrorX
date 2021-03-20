@@ -101,7 +101,7 @@ def systemstats(update, context):
     uname = platform.uname()
     system = platform.system()
     build = platform.python_build()
-    tuple = platform.python_version_tuple()
+    version = platform.python_version_tuple()
     status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
@@ -113,9 +113,9 @@ def systemstats(update, context):
              f'<b>Nomor Build:</b> <code>' + str(build.buildno) + '</code>\n' \
              f'<b>Piton Kompiler:</b> <code>' + python_compiler() + '</code>n' \
              f'<b>Build Piton :</b> <code>' + str(build.builddate) + '</code>\n' \
-             f'<b>Major Piton:</b> <code>' + str(tuple.major) + '</code>\n' \
-             f'<b>Minor Piton:</b> <code>' + str(tuple.minor) + '</code>\n' \
-             f'<b>Patch Level:</b> <code>' + str(tuple.patchlevel) + '</code>\n' \
+             f'<b>Major Piton:</b> <code>' + str(version.major) + '</code>\n' \
+             f'<b>Minor Piton:</b> <code>' + str(version.minor) + '</code>\n' \
+             f'<b>Patch Level:</b> <code>' + str(version.patchlevel) + '</code>\n' \
              f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n' \
              f'<b>System:</b> <code>' + str(system.system) + '</code>\n'
     context.bot.sendMessage(

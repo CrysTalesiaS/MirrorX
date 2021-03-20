@@ -109,8 +109,7 @@ def systemstats(update, context):
              f'<b>Version:</b> <code>' + str(uname.version) + '</code>\n' \
              f'<b>Machine:</b> <code>' + str(uname.machine) + '</code>\n' \
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
-             f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
-             f'<b>Nomor Build:</b> <code>' + str(build.buildno) + '</code>\n' \
+             f'<b>Python version:</b> <code>' + python_version() + '</code.\n' \
              f'<b>Piton Kompiler:</b> <code>' + python_compiler() + '</code>n' \
              f'<b>Build Piton :</b> <code>' + str(build.builddate) + '</code>\n' \
              f'<b>Major Piton:</b> <code>' + str(version.major) + '</code>\n' \

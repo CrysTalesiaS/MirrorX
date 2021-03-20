@@ -181,7 +181,7 @@ def main():
     stats_handler = CommandHandler(BotCommands.StatsCommand,
                                    stats, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     log_handler = CommandHandler(BotCommands.LogCommand, log, filters=CustomFilters.owner_filter)
-    system_handler = CommandHandler(BotCommands.system_statusCommand, system_status,
+    system_handler = CommandHandler(BotCommands.System_StatusCommand, system_status,
                                     filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 
 

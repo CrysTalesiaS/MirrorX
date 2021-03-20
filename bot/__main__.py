@@ -95,25 +95,26 @@ def ping(update, context):
 def log(update, context):
     sendLogFile(context.bot, update)
     
-@typing_action
-def system(update, context):
-    status = "<b>======[ SYSTEM INFO ]======</b>\n\n"
-    status += "<b>System uptime:</b> <code>" + str(uptime) + "</code>\n"
-
+@run_async
+def system_status(update, context):
     uname = platform.uname()
-    status += "<b>System:</b> <code>" + str(uname.system) + "</code>\n"
-    status += "<b>Node name:</b> <code>" + str(uname.node) + "</code>\n"
-    status += "<b>Release:</b> <code>" + str(uname.release) + "</code>\n"
-    status += "<b>Version:</b> <code>" + str(uname.version) + "</code>\n"
-    status += "<b>Machine:</b> <code>" + str(uname.machine) + "</code>\n"
-    status += "<b>Processor:</b> <code>" + str(uname.processor) + "</code>\n"
-    status += "<b>Operating System:</b> <code>" + str(uname.OS) + "</code>\n"
-    status += "<b>Kernel:</b> <code>" + str(uname.kernel) + "</code>\n"
-    status += "<b>Paket:</b> <code>" + str(uname.package) + "</code>\n"
-    status += "<b>Shell:</b> <code>" + str(uname.shell) + "</code>\n"
-    status += "<b>Terminal:</b> <code>" + str(uname.terminal) + "</code>\n"
-    status += "<b>Python version:</b> <code>" + python_version() + "</code>\n"
-    status += "<b>Library version:</b> <code>" + str(__version__) + "</code>\n\n"
+    status = f' <b>======[ SYSTEM INFO ]======</b>\n\n'n' \
+             f'<b>System uptime:</b> <code>" + str(uptime) + "</code>\n' \
+
+    
+             f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
+             f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
+             f'<b>Release:</b> <code>' + str(uname.release) + '</code>\n' \
+             f'<b>Version:</b> <code>' + str(uname.version) + '</code>\n' \
+             f'<b>Machine:</b> <code>' + str(uname.machine) + '</code>\n' \
+             f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
+             f'<b>Operating System:</b> <code>' + str(uname.OS) + '</code>\n' \
+             f'<b>Kernel:</b> <code>' + str(uname.kernel) + '</code>\n' \
+             f'<b>Paket:</b> <code>' + str(uname.package) + '</code>\n' \
+             f'<b>Shell:</b> <code>' + str(uname.shell) + '</code>\n' \
+             f'<b>Terminal:</b> <code>' + str(uname.terminal) + '</code>\n' \
+             f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
+             f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n\n' 
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )
@@ -182,9 +183,9 @@ def main():
     stats_handler = CommandHandler(BotCommands.StatsCommand,
                                    stats, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     log_handler = CommandHandler(BotCommands.LogCommand, log, filters=CustomFilters.owner_filter)
-    SYS_STATUS_HANDLER = CommandHandler(
-    "system", system_status, filters=CustomFilters.dev_filter, run_async=True
-)
+    system_handler = CommandHandler(BotCommands.System_statusCommand, system,
+                                    filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
+
 
 
     dispatcher.add_handler(start_handler)

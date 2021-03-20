@@ -33,13 +33,13 @@ def stats(update, context):
     cpuUsage = psutil.cpu_percent(interval=0.5)
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage('/').percent
-    stats = f'<b>Bot Menyala Sejak ⌚:</b> {currentTime}\n' \
+    stats = f'<b>Bot Menyala Sejak⌚:</b> {currentTime}\n' \
             f'<b>Sisa Penyimpanan🗄️:</b> {total}\n' \
-            f'<b>Memory bot terpakai 🗃️:</b> {used}  ' \
-            f'<b>Ruang Kosong Bot 🗃️:</b> {free}\n' \
-            f'<b>Waktu bot menyala pertama kali 👨‍💻:</b> {current}\n\n' \
-            f'📇Pengunaan data bot📇\n<b>Uploaded :</b> {sent}\n' \
-            f'<b>Yang lagi didownload:</b> {recv}\n\n' \
+            f'<b>Memory bot terpakai🗃️:</b> {used}  ' \
+            f'<b>Ruang Kosong Bot🗃️:</b> {free}\n' \
+            f'<b>Waktu bot menyala pertama kali👨‍💻:</b> {current}\n\n' \
+            f'📇Pengunaan data bot📇\n<b>Kouta Ter Upload :</b> {sent}\n' \
+            f'<b>Kouta Ter Download:</b> {recv}\n\n' \
             f'<b>CPU 🖥️:</b> {cpuUsage}% ' \
             f'<b>RAM ⛏️:</b> {memory}% ' \
             f'<b>Disk 🗄️:</b> {disk}%'

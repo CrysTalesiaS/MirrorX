@@ -50,7 +50,7 @@ def stats(update, context):
             f'<b>Kouta Ter Download:</b> {recv}\n\n' \
             f'<b>CPU 🖥️:</b> {cpuUsage}% ' \
             f'<b>RAM ⛏️:</b> {memory}% ' \
-            f'<b>Disk 🗄️:</b> {disk}%'
+            f'<b>Penyimpanan 🗄️:</b> {disk}%'
     sendMessage(stats, context.bot, update)
 
 

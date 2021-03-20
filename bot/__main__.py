@@ -117,7 +117,7 @@ def systemstats(update, context):
              f'<b>Minor Piton:</b> <code>' + str(tuple.minor) + '</code>\n' \
              f'<b>Patch Level:</b> <code>' + str(tuple.patchlevel) + '</code>\n' \
              f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n' \
-             f'<b>System:</b> <code>' + str(system.system) + '</code>\n' \
+             f'<b>System:</b> <code>' + str(system.system) + '</code>\n'
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )

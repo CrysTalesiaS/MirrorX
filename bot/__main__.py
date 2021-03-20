@@ -101,7 +101,7 @@ def systemstats(update, context):
     uname = platform.uname()
     system = platform.system()
     build = platform.python_build()
-    version = platform.python_version_tuple()
+    version = platform.python_version()
     status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \

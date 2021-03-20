@@ -14,7 +14,7 @@ import datetime
 import pytz
 from datetime import datetime
 from pyrogram import idle
-from telegram.ext import CommandHandler, run_async, Filters
+from telegram.ext import CommandHandler, run_async
 from bot import dispatcher, updater, botStartTime
 from bot.helper.ext_utils import fs_utils
 from telegram import ParseMode, __version__

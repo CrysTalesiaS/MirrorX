@@ -110,8 +110,8 @@ def systemstats(update, context):
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
              f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
              f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n' \
-             f'<b>Nomor Build:</b> <code>' + str(__buildno__) + '</code>\n' \
-             f'<b>Tanggal Build:</b> <code>' + str(__builddate__) + '</code>\n'
+             f'<b>Nomor Build:</b> <code>' + str(build.buildno) + '</code>\n' \
+             f'<b>Tanggal Build:</b> <code>' + str(build.builddate) + '</code>\n'
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )

@@ -22,6 +22,6 @@ class _BotCommands:
         self.deleteCommand = 'hapus'
         self.clnCommand = 'cln'
         self.UsageCommand = 'Penggunaan'
-        self.SystemCommand= 'System'
+        self.SystemstatsCommand= 'System'
         
 BotCommands = _BotCommands()

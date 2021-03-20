@@ -9,17 +9,30 @@ from bot import dispatcher
 
 @new_thread
 def cloneNode(update,context):
+    cloneNode(update,context):
+    if update.message.from_user.last_name:
+        last_name = f" {update.message.from_user.last_name}"
+    else:
+        last_name = ""
+    if update.message.from_user.username:
+        username = f"@{update.message.from_user.username}"
+    else:
+        username = ""
+    name = f'<a href="tg://user?id={update.message.from_user.id}">{update.message.from_user.first_name}{last_name}</a>'
     args = update.message.text.split(" ",maxsplit=1)
     if len(args) > 1:
         link = args[1]
-        msg = sendMessage(f"Bentar lagi clonning linknya: <code>{link}</code>",context.bot,update)
+         = update.message.text.split(" ",maxsplit=1)
+    if len(args) > 1:
+        link = args[1]
+        msg = f'Bentar lg clonning link google drive nya\n' \
+              f'User: buat yang request tadi {username}\n' \
+              f'Link: <a href="{link}">{link}</a>'
+        sendMessage(msg, context.bot, update)
         gd = GoogleDriveHelper()
         result, button = gd.clone(link)
-        deleteMessage(context.bot,msg)
-        if button == "":
-            sendMessage(result,context.bot,update)
-        else:
-            sendMarkup(result,context.bot,update,button)
+        LOGGER.info('ID: {} - Username: {} - Message: {}'.format(update.message.chat.id,update.message.chat.username,update.message.text))
+        # deleteMessage(context.bot,msg)
     else:
         sendMessage("Provide G-Drive Shareable Link to Clone.",context.bot,update)
 

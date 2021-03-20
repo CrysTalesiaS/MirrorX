@@ -148,7 +148,7 @@ def bot_help(update, context):
 
 /{BotCommands.CloneCommand} : Clone link Google Drive
 
-/{BotCommands.SystemCommand} : Ngeliat system yang dipakai bot saat ini
+/{BotCommands.SystemstatsCommand} : Ngeliat system yang dipakai bot saat ini
 
 /{BotCommands.UsageCommand}: ngeliat sisa penggunaan bulan ini
 
@@ -181,7 +181,7 @@ def main():
     stats_handler = CommandHandler(BotCommands.StatsCommand,
                                    stats, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     log_handler = CommandHandler(BotCommands.LogCommand, log, filters=CustomFilters.owner_filter)
-    system_handler = CommandHandler(BotCommands.SystemstatsCommand, system_status,
+    system_handler = CommandHandler(BotCommands.SystemstatsCommand, systemstats,
                                     filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 
 

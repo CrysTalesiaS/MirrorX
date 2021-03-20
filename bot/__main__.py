@@ -16,6 +16,7 @@ from pyrogram import idle
 from telegram.ext import CommandHandler, run_async
 from bot import dispatcher, updater, botStartTime
 from bot.helper.ext_utils import fs_utils
+from telegram import ParseMode, __version__
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import *
 from .helper.ext_utils.bot_utils import get_readable_file_size, get_readable_time

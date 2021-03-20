@@ -5,7 +5,6 @@ import subprocess
 import signal
 import platform
 from platform import python_version
-from  platform import python_compiler
 from platform import python_build
 import pickle
 from bot import app
@@ -102,7 +101,8 @@ def systemstats(update, context):
     uname = platform.uname()
     system = platform.system()
     
-    status = f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
+    status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
+             f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
              f'<b>Release:</b> <code>' + str(uname.release) + '</code>\n' \
              f'<b>Version:</b> <code>' + str(uname.version) + '</code>\n' \
@@ -110,7 +110,6 @@ def systemstats(update, context):
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
              f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
              f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n' \
-             f'<b>Kompiler:</b> <code>' + python_compiler() + '</code>\n' \
              f'<b>Build:</b> <code>' + python_build() + '</code>\n'
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML

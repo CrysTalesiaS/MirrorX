@@ -98,8 +98,8 @@ def log(update, context):
 @run_async
 def system_status(update, context):
     uname = platform.uname()
-    system = f' <b>======[ SYSTEM INFO ]======</b>\n\n' \
-             f'<b>System uptime:</b> <code>" + str(uptime) + "</code>\n' \
+    system = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
+             f'<b>System uptime:</b> <code>' + str(uptime) + '</code>\n' \
 
     
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \

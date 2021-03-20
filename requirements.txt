@@ -29,5 +29,4 @@ aiohttp
 telethon
 datetime
 pytz
-asyncio
 time

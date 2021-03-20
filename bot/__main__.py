@@ -1,5 +1,7 @@
 import shutil, psutil
 import signal
+import platform
+from platform import python_version
 import pickle
 from bot import app
 from os import execl, path, remove
@@ -86,6 +88,29 @@ def ping(update, context):
 @run_async
 def log(update, context):
     sendLogFile(context.bot, update)
+    
+@run_async
+def system(update, context):
+    status = "<b>======[ SYSTEM INFO ]======</b>\n\n"
+    status += "<b>System uptime:</b> <code>" + str(uptime) + "</code>\n"
+
+    uname = platform.uname()
+    status += "<b>System:</b> <code>" + str(uname.system) + "</code>\n"
+    status += "<b>Node name:</b> <code>" + str(uname.node) + "</code>\n"
+    status += "<b>Release:</b> <code>" + str(uname.release) + "</code>\n"
+    status += "<b>Version:</b> <code>" + str(uname.version) + "</code>\n"
+    status += "<b>Machine:</b> <code>" + str(uname.machine) + "</code>\n"
+    status += "<b>Processor:</b> <code>" + str(uname.processor) + "</code>\n"
+    status += "<b>Operating System:</b> <code>" + str(uname.OS) + "</code>\n"
+    status += "<b>Kernel:</b> <code>" + str(uname.kernel) + "</code>\n"
+    status += "<b>Paket:</b> <code>" + str(uname.package) + "</code>\n"
+    status += "<b>Shell:</b> <code>" + str(uname.shell) + "</code>\n"
+    status += "<b>Terminal:</b> <code>" + str(uname.terminal) + "</code>\n"
+    status += "<b>Python version:</b> <code>" + python_version() + "</code>\n"
+    status += "<b>Library version:</b> <code>" + str(__version__) + "</code>\n\n"
+    context.bot.sendMessage(
+        update.effective_chat.id, status, parse_mode=ParseMode.HTML
+    )
 
 
 @run_async
@@ -119,7 +144,7 @@ def bot_help(update, context):
 
 /{BotCommands.CloneCommand} : Clone link Google Drive
 
-
+/{BotCommands.SystemCommand} : Ngeliat system yang dipakai bot saat ini
 
 /{BotCommands.UsageCommand}: ngeliat sisa penggunaan bulan ini
 
@@ -142,7 +167,7 @@ def main():
         remove('restart.pickle')
 
     start_handler = CommandHandler(BotCommands.StartCommand, start,
-                                   filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
+                                   filters=
     ping_handler = CommandHandler(BotCommands.PingCommand, ping,
                                   filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     restart_handler = CommandHandler(BotCommands.RestartCommand, restart,
@@ -152,6 +177,8 @@ def main():
     stats_handler = CommandHandler(BotCommands.StatsCommand,
                                    stats, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     log_handler = CommandHandler(BotCommands.LogCommand, log, filters=CustomFilters.owner_filter)
+    system_handler = CommandHandler(BotCommands.SystemCommand, system,
+                                    filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 
 
     dispatcher.add_handler(start_handler)

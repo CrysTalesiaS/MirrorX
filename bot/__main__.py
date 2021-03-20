@@ -98,6 +98,7 @@ def log(update, context):
 @run_async
 def systemstats(update, context):
     uname = platform.uname()
+    
     status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
@@ -105,7 +106,7 @@ def systemstats(update, context):
              f'<b>Version:</b> <code>' + str(uname.version) + '</code>\n' \
              f'<b>Machine:</b> <code>' + str(uname.machine) + '</code>\n' \
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
-             f'<b>Operating System:</b> <code>' + str(uname.OS) + '</code>\n' \
+             f'<b>Operating System:</b> <code>' + str(uname.os) + '</code>\n' \
              f'<b>Kernel:</b> <code>' + str(uname.kernel) + '</code>\n' \
              f'<b>Paket:</b> <code>' + str(uname.package) + '</code>\n' \
              f'<b>Shell:</b> <code>' + str(uname.shell) + '</code>\n' \

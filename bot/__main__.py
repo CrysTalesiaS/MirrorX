@@ -6,7 +6,7 @@ import signal
 import platform
 from platform import python_version
 from platform import python_compiler
-from platform.python_build import buildno, builddate
+from python_build import buildno, builddate
 import pickle
 from bot import app
 from threading import Thread

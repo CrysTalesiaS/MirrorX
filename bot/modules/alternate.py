@@ -16,7 +16,7 @@
 
 from functools import wraps
 from telegram import error, ChatAction
-from ubotindo import LOGGER
+from bot import LOGGER
 
 
 def send_message(message, text, *args, **kwargs):

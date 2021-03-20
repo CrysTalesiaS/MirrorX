@@ -100,8 +100,6 @@ def system_status(update, context):
     uname = platform.uname()
     system = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System uptime:</b> <code>' + str(uptime) + '</code>\n' \
-
-    
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
              f'<b>Release:</b> <code>' + str(uname.release) + '</code>\n' \

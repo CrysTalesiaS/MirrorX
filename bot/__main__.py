@@ -4,7 +4,7 @@ import html
 import subprocess
 import signal
 import platform
-form platform import python_version
+from platform import python_version
 from platform import python_compiler
 import pickle
 from bot import app

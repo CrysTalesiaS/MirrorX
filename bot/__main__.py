@@ -54,13 +54,9 @@ def stats(update, context):
     sendMessage(stats, context.bot, update)
 
 
-@run_async
-def start(update, context):
-    start_Thisstring = f'''
-    Iini bot bisa mirror link gd/mediafire/zippy/mega
-Type /{BotCommands.HelpCommand} kalo pengen liat perintah bot
-'''
-    sendMessage(start_string, context.bot, update)
+
+
+
     
 
 @run_async
@@ -99,7 +95,7 @@ def log(update, context):
 def systemstats(update, context):
     uname = platform.uname()
     system = platform.system()
-    
+    update.effective_message.reply_photo("https://telegra.ph/file/b783e7e79d76c7310e79d.jpg", status, parse_mode=ParseMode.MARKDOWN)
     status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
@@ -113,8 +109,7 @@ def systemstats(update, context):
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )
     
-    update.effective_message.reply_photo("https://telegra.ph/file/78f7a3309e2e5444ee043.jpg", status, parse_mode=ParseMode.MARKDOWN)
-
+    
 
 @run_async
 def bot_help(update, context):

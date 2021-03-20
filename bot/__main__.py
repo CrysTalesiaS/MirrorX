@@ -1,4 +1,7 @@
 import shutil, psutil
+import os
+import html 
+import subprocess
 import signal
 import platform
 from platform import python_version

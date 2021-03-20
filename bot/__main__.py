@@ -5,7 +5,6 @@ import subprocess
 import signal
 import platform
 from platform import python_version
-from platform import python_compiler
 import pickle
 from bot import app
 from threading import Thread
@@ -109,12 +108,7 @@ def systemstats(update, context):
              f'<b>Machine:</b> <code>' + str(uname.machine) + '</code>\n' \
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
              f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
-             f'<b>Piton Kompiler:</b> <code>' + python_compiler() + '</code>n' \
-             f'<b>Major Piton:</b> <code>' + str(version.major) + '</code>\n' \
-             f'<b>Minor Piton:</b> <code>' + str(version.minor) + '</code>\n' \
-             f'<b>Patch Level:</b> <code>' + str(version.patchlevel) + '</code>\n' \
-             f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n' \
-             f'<b>System:</b> <code>' + str(system.system) + '</code>\n'
+             f'<b>Piton Kompiler:</b> <code>' + python_compiler() + '</code>n\n' \
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )

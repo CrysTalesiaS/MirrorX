@@ -9,7 +9,6 @@ from bot import dispatcher
 
 @new_thread
 def cloneNode(update,context):
-    cloneNode(update,context):
     if update.message.from_user.last_name:
         last_name = f" {update.message.from_user.last_name}"
     else:

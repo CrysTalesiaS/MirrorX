@@ -6,7 +6,6 @@ import signal
 import platform
 from platform import python_version
 from platform import python_compiler
-from python_build import buildno, builddate
 import pickle
 from bot import app
 from threading import Thread
@@ -100,8 +99,7 @@ def log(update, context):
 @run_async
 def systemstats(update, context):
     uname = platform.uname()
-    system = platform.system()
-    build = platform.python_build()
+    system = platform.system(
     version = platform.python_version()
     status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
@@ -112,8 +110,6 @@ def systemstats(update, context):
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
              f'<b>Python version:</b> <code>' + python_version() + '</code.\n' \
              f'<b>Piton Kompiler:</b> <code>' + python_compiler() + '</code>n' \
-             f'<b>Nomor Build:</b> <code>' + str(build.buildno) + '</code>n' \
-             f'<b>Build Piton :</b> <code>' + str(build.builddate) + '</code>\n' \
              f'<b>Major Piton:</b> <code>' + str(version.major) + '</code>\n' \
              f'<b>Minor Piton:</b> <code>' + str(version.minor) + '</code>\n' \
              f'<b>Patch Level:</b> <code>' + str(version.patchlevel) + '</code>\n' \

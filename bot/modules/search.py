@@ -139,7 +139,7 @@ async def nyaa_callback(client, callback_query):
 def searchhelp(update, context):
     help_string = '''
 • /torrent <i>[search query]</i>
-• /meong <i>[search query]</i>
+• /nyaa <i>[search query]</i>
 • /nyaasi <i>[search query]</i>
 
 • /sts <i>[search query]</i>

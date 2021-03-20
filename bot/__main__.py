@@ -98,7 +98,7 @@ def log(update, context):
 @run_async
 def system_status(update, context):
     uname = platform.uname()
-    status = f' <b>======[ SYSTEM INFO ]======</b>\n\n'n' \
+    system = f' <b>======[ SYSTEM INFO ]======</b>\n\n'n' \
              f'<b>System uptime:</b> <code>" + str(uptime) + "</code>\n' \
 
     
@@ -183,7 +183,7 @@ def main():
     stats_handler = CommandHandler(BotCommands.StatsCommand,
                                    stats, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     log_handler = CommandHandler(BotCommands.LogCommand, log, filters=CustomFilters.owner_filter)
-    system_handler = CommandHandler(BotCommands.System_statusCommand, system,
+    system_handler = CommandHandler(BotCostatus.system_statusCommand, system_status,
                                     filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 
 

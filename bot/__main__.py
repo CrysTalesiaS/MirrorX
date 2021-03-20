@@ -115,7 +115,7 @@ def system(update, context):
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )
-
+dispatcher.addhandler(system_handler)
 
 @run_async
 def bot_help(update, context):

@@ -30,5 +30,4 @@ telethon
 datetime
 pytz
 asyncio
-html
 time

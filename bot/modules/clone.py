@@ -19,7 +19,7 @@ def cloneNode(update,context):
         username = ""
     name = f'<a href="tg://user?id={update.message.from_user.id}">{update.message.from_user.first_name}{last_name}</a>'
 
-     args = update.message.text.split(" ",maxsplit=1)
+    args = update.message.text.split(" ",maxsplit=1)
     if len(args) > 1:
         link = args[1]
         msg = f'Bentar lg clonning link google drive nya\n' \

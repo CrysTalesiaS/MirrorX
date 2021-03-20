@@ -6,6 +6,7 @@ import signal
 import platform
 from platform import python_version
 from platform import python_compiler
+from platform.python_build import buildno, builddate
 import pickle
 from bot import app
 from threading import Thread
@@ -111,6 +112,7 @@ def systemstats(update, context):
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
              f'<b>Python version:</b> <code>' + python_version() + '</code.\n' \
              f'<b>Piton Kompiler:</b> <code>' + python_compiler() + '</code>n' \
+             f'<b>Nomor Build:</b> <code>' + str(build.buildno) + '</code>n' \
              f'<b>Build Piton :</b> <code>' + str(build.builddate) + '</code>\n' \
              f'<b>Major Piton:</b> <code>' + str(version.major) + '</code>\n' \
              f'<b>Minor Piton:</b> <code>' + str(version.minor) + '</code>\n' \

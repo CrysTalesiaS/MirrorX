@@ -96,7 +96,7 @@ def systemstats(update, context):
     uname = platform.uname()
     system = platform.system()
     
-    status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
+    code = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
              f'<b>Release:</b> <code>' + str(uname.release) + '</code>\n' \
@@ -106,9 +106,10 @@ def systemstats(update, context):
              f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
              f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n'
     context.bot.sendMessage(
-        update.effective_chat.id, status, parse_mode=ParseMode.HTML
+        update.effective_chat.id, code, parse_mode=ParseMode.HTML
        )
- 
+    update.effective_message.reply_photo("https://telegra.ph/file/b783e7e79d76c7310e79d.jpg", code, parse_mode=ParseMode.MARKDOWN)
+    
 
 
 

@@ -4,7 +4,8 @@ import html
 import subprocess
 import signal
 import platform
-from platform import python_version
+form platform import python_version
+from platform import python_compiler
 import pickle
 from bot import app
 from threading import Thread
@@ -99,7 +100,8 @@ def log(update, context):
 def systemstats(update, context):
     uname = platform.uname()
     system = platform.system()
-    alias = platform.system_alias()
+    build = platform.python_build()
+    tuple = platform.python_version_tuple()
     status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
@@ -108,9 +110,14 @@ def systemstats(update, context):
              f'<b>Machine:</b> <code>' + str(uname.machine) + '</code>\n' \
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
              f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
+             f'<b>Nomor Build:</b> <code>' + str(build.buildno) + '</code>\n' \
+             f'<b>Piton Kompiler:</b> <code>' + python_compiler() + '</code>n' \
+             f'<b>Build Piton :</b> <code>' + str(build.builddate) + '</code>\n' \
+             f'<b>Major Piton:</b> <code>' + str(tuple.major) + '</code>\n' \
+             f'<b>Minor Piton:</b> <code>' + str(tuple.minor) + '</code>\n' \
+             f'<b>Patch Level:</b> <code>' + str(tuple.patchlevel) + '</code>\n' \
              f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n' \
              f'<b>System:</b> <code>' + str(system.system) + '</code>\n' \
-             f'<b>System Alias:</b> <code>' + str(alias.system_alias) + '</code>\n\n'
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )

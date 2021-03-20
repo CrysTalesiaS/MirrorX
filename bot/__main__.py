@@ -5,7 +5,7 @@ import subprocess
 import signal
 import platform
 from platform import python_version
-from  platform import python_build
+from  platform import python_compiler
 import pickle
 from bot import app
 from threading import Thread

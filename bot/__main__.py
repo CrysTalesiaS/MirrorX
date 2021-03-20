@@ -5,7 +5,7 @@ import subprocess
 import signal
 import platform
 from platform import python_version
-import lib_platform
+from  platform import python_build
 import pickle
 from bot import app
 from threading import Thread
@@ -100,7 +100,7 @@ def log(update, context):
 def systemstats(update, context):
     uname = platform.uname()
     system = platform.system()
-    version = platform.python_version()
+    build = platform.python_build()
     status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \

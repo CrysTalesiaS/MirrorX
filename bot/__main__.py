@@ -100,7 +100,7 @@ def log(update, context):
 def systemstats(update, context):
     uname = platform.uname()
     system = platform.system()
-    build = platform.python_build()
+    
     status = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
@@ -110,8 +110,9 @@ def systemstats(update, context):
              f'<b>Processor:</b> <code>' + str(uname.processor) + '</code>\n' \
              f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
              f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n' \
-             f'<b>Nomor Build:</b> <code>' + str(build.buildno) + '</code>\n' \
-             f'<b>Tanggal Build:</b> <code>' + str(build.builddate) + '</code>\n'
+             f'<b>Kompiler:</b> <code>' + python_compiler() + '</code>\n' \
+             f'<b>Build:</b> <code>' + python_build() + '</code>\n' \
+             f'<b>Arsitektur:</b> <code>' + architecture() + '</code>\n'
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )

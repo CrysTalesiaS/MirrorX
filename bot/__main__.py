@@ -106,11 +106,11 @@ def systemstats(update, context):
              f'<b>Python version:</b> <code>' + python_version() + '</code>\n' \
              f'<b>Library version:</b> <code>' + str(__version__) + '</code>\n'
     context.bot.sendMessage(
-        update.effective_chat.id, status, parse_mode=ParseMode.HTML,
-        update.effective_message.reply_photo("https://telegra.ph/file/b783e7e79d76c7310e79d.jpg", status, parse_mode=ParseMode.MARKDOWN)
-    )
+        update.effective_chat.id, status, parse_mode=ParseMode.HTML
+       )
+ 
 
-    
+
 
 @run_async
 def bot_help(update, context):

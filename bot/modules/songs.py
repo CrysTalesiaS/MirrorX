@@ -23,6 +23,7 @@ from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import *
 from bot.helper.telegram_helper.filters import CustomFilters
 
+@run_async
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
 
@@ -87,7 +88,6 @@ file_helpo = file_help.replace("_", " ")
 
 
 @run_async
-def song(update, context):
   help_string = '''
  - `/lagu (nama lagu/artist)`*:* upload lagu dengan kualitas terbaik
  - `/video (nama video/artist)`*:* upload video dengan kualitas terbaik

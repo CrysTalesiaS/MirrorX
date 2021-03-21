@@ -143,9 +143,12 @@ def clear(update: Update, context: CallbackContext):
     send("Cleared locals.", bot, update)
 
 
-EVAL_HANDLER = CommandHandler(('e', 'ev', 'eva', 'eval'), evaluate)
-EXEC_HANDLER = CommandHandler(('x', 'ex', 'exe', 'exec', 'py'), execute)
-CLEAR_HANDLER = CommandHandler('clearlocals', clear)
+EVAL_HANDLER = CommandHandler(('e', 'ev', 'eva', 'eval'), evaluate,
+                              filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
+EXEC_HANDLER = CommandHandler(('x', 'ex', 'exe', 'exec', 'py'), execute,
+                              filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
+CLEAR_HANDLER = CommandHandler('clearlocals', clear
+                               filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 
 dispatcher.add_handler(EVAL_HANDLER)
 dispatcher.add_handler(EXEC_HANDLER)

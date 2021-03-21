@@ -138,15 +138,15 @@ async def nyaa_callback(client, callback_query):
 @run_async
 def searchhelp(update, context):
     help_string = '''
-• /torrent <i>[search query]</i>
+• /ts <i>[search query]</i>
 • /nyaa <i>[search query]</i>
 • /nyaasi <i>[search query]</i>
 
 • /sts <i>[search query]</i>
 • /sukebei <i>[search query]</i>
 '''
-    update.effective_message.reply_photo("https://telegra.ph/file/4ef03fcaed334989346ec.jpg", help_string, parse_mode=ParseMode.HTML)
+    update.effective_message.reply_photo("https://telegra.ph/file/db03910496f06094f1f7a.jpg", help_string, parse_mode=ParseMode.HTML)
     
     
-SEARCHHELP_HANDLER = CommandHandler("tolongtorrent", searchhelp)
+SEARCHHELP_HANDLER = CommandHandler("tshelp", searchhelp)
 dispatcher.add_handler(SEARCHHELP_HANDLER)

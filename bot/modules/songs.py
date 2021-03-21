@@ -12,7 +12,7 @@ from youtube_dl.utils import (DownloadError, ContentTooShortError,
 
 from telethon import types
 from telethon.tl import functions
-from Cutiepii_Robot.cutiepii import Cutiepii_Robot
+from bot import bot
 from youtubesearchpython import SearchVideos
 from tswift import Song
 
@@ -80,9 +80,9 @@ file_help = file_help.replace(".py", "")
 file_helpo = file_help.replace("_", " ")
 
 __help__ = """
- - /song <songname artist(optional)>: uploads the song in it's best quality available
- - /video <songname artist(optional)>: uploads the video song in it's best quality available
- - /lyrics <songname artist(optional)>: sends the complete lyrics of the song provided as input
+ - /lagu (nama lagu/artist): upload lagu dengan kualitas terbaik
+ - /video (nama video/artist): upload video dengan kualitas terbaik
+ - /lirik (nama lagu)>: kirim pesan lirik sebuah lagu
  
 """
 __mod_name__ = "Music"

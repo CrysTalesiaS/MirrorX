@@ -198,6 +198,8 @@ def main():
     log_handler = CommandHandler(BotCommands.LogCommand, log, filters=CustomFilters.owner_filter)
     system_handler = CommandHandler(BotCommands.SystemstatsCommand, systemstats,
                                     filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
+    song_handler = CommandHandler(BotCommands.SongCommand, song,
+                              filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 
 
 
@@ -208,6 +210,7 @@ def main():
     dispatcher.add_handler(stats_handler)
     dispatcher.add_handler(log_handler)
     dispatcher.add_handler(system_handler)
+    dispatcher.add_handler(song_handler)
     updater.start_polling()
     LOGGER.info("Bot Started!")
     signal.signal(signal.SIGINT, fs_utils.exit_clean_up)

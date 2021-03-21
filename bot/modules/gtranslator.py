@@ -126,7 +126,8 @@ Translates Languages to a desired Language code.
 """
 
 TRANSLATE_HANDLER = BotHandler(BotCommands.TotranslateCommand, totranslate,
-                               filters=CustomFilters.authorized_chat | filters=CustomFilters.authorized_user)
+                               filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
+
 
 dispatcher.add_handler(TRANSLATE_HANDLER)
 

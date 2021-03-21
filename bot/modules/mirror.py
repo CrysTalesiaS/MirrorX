@@ -130,7 +130,7 @@ class MirrorListener(listeners.MirrorListeners):
             uname = f"@{self.message.from_user.username}"
         else:
             uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
-        msg = f"{uname} your download has been stopped due to: {error}"
+        msg = f"{uname} download kamu gagal karena: {error}"
         sendMessage(msg, self.bot, self.update)
         if count == 0:
             self.clean()
@@ -145,13 +145,13 @@ class MirrorListener(listeners.MirrorListeners):
 
     def onUploadComplete(self, link: str, size):
         with download_dict_lock:
-            msg = f'<b>Filename: </b><code>{download_dict[self.uid].name()}</code>\n<b>Size: </b><code>{size}</code>'
+            msg = f'<b>Nama File: </b><code>{download_dict[self.uid].name()}</code>\n<b>Ukuran: </b><code>{size}</code>'
             buttons = button_build.ButtonMaker()
             if SHORTENER is not None and SHORTENER_API is not None:
                 surl = requests.get('https://{}/api?api={}&url={}&format=text'.format(SHORTENER, SHORTENER_API, link)).text
-                buttons.buildbutton("⚡Drive Link⚡", surl)
+                buttons.buildbutton("Ini Linknya", surl)
             else:
-                buttons.buildbutton("⚡Drive Link⚡", link)
+                buttons.buildbutton("Ini Linknya", link)
             LOGGER.info(f'Done Uploading {download_dict[self.uid].name()}')
             if INDEX_URL is not None:
                 share_url = requests.utils.requote_uri(f'{INDEX_URL}/{download_dict[self.uid].name()}')
@@ -159,9 +159,9 @@ class MirrorListener(listeners.MirrorListeners):
                     share_url += '/'
                 if SHORTENER is not None and SHORTENER_API is not None:
                     siurl = requests.get('https://{}/api?api={}&url={}&format=text'.format(SHORTENER, SHORTENER_API, share_url)).text
-                    buttons.buildbutton("🔥Index Link🔥", siurl)
+                    buttons.buildbutton("🔥Ini link indexnya🔥", siurl)
                 else:
-                    buttons.buildbutton("🔥Index Link🔥", share_url)
+                    buttons.buildbutton("🔥Ini link indexnya🔥", share_url)
             if BUTTON_THREE_NAME is not None and BUTTON_THREE_URL is not None:
                 buttons.buildbutton(f"{BUTTON_THREE_NAME}", f"{BUTTON_THREE_URL}")
             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
@@ -173,7 +173,7 @@ class MirrorListener(listeners.MirrorListeners):
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f'\n\ncc: {uname}'
+                msg += f'\n\ncc: makasih buat {uname} yg udh pake bot ku :3'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:
@@ -248,7 +248,7 @@ def _mirror(bot, update, isTar=False, extract=False):
     else:
         tag = None
     if not bot_utils.is_url(link) and not bot_utils.is_magnet(link):
-        sendMessage('No download source provided', bot, update)
+        sendMessage('Link nya gk ada nih -_-', bot, update)
         return
 
     try:
@@ -259,9 +259,9 @@ def _mirror(bot, update, isTar=False, extract=False):
     if bot_utils.is_mega_link(link):
         link_type = get_mega_link_type(link)
         if link_type == "folder" and BLOCK_MEGA_FOLDER:
-            sendMessage("Mega folder are blocked!", bot, update)
+            sendMessage("Mega folder diblock!", bot, update)
         elif BLOCK_MEGA_LINKS:
-            sendMessage("Mega links are blocked bcoz mega downloading is too much unstable and buggy. mega support will be added back after fix", bot, update)
+            sendMessage("Mega links nya di block ya Syg krn blum stabil", bot, update)
         else:
             mega_dl = MegaDownloadHelper()
             mega_dl.add_download(link, f'{DOWNLOAD_DIR}/{listener.uid}/', listener)

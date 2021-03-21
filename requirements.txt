@@ -30,3 +30,5 @@ telethon
 datetime
 pytz
 html
+youtube-search-python
+tswift

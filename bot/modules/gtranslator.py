@@ -3,9 +3,10 @@ from googletrans import Translator, LANGUAGES
 from telegram import Update, ParseMode
 from telegram.ext import run_async, CallbackContext
 
-from lynda import dispatcher
-from lynda.modules.disable import DisableAbleCommandHandler
-
+from bot import dispatcher
+from telegram.ext import CommandHandler
+from bot.helper.telegram_helper.bot_commands import BotCommands
+from .helper.telegram_helper.filters import CustomFilters
 
 @run_async
 def totranslate(update: Update, _):
@@ -124,7 +125,8 @@ __help__ = """
 Translates Languages to a desired Language code.
 """
 
-TRANSLATE_HANDLER = DisableAbleCommandHandler("tr", totranslate)
+TRANSLATE_HANDLER = BotHandler(BotCommands.TotranslateCommand, totranslate,
+                               filters=CustomFilters.authorized_chat | filters=CustomFilters.authorized_chat)
 
 dispatcher.add_handler(TRANSLATE_HANDLER)
 

@@ -23,5 +23,6 @@ class _BotCommands:
         self.clnCommand = 'cln'
         self.UsageCommand = 'Penggunaan'
         self.SystemstatsCommand= 'System'
+        self.WikiCommand= 'wiki'
         
 BotCommands = _BotCommands()

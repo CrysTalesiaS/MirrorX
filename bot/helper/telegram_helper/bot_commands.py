@@ -24,5 +24,6 @@ class _BotCommands:
         self.UsageCommand = 'Penggunaan'
         self.SystemstatsCommand= 'System'
         self.WikiCommand= 'wiki'
+        self.TotranslateCommand = 'tr'
         
 BotCommands = _BotCommands()

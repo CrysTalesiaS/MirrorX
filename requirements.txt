@@ -33,3 +33,5 @@ html
 youtube-search-python
 tswift
 wikipedia
+emoji
+googletrans

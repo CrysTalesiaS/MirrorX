@@ -56,19 +56,12 @@ def stats(update, context):
 
 
 
-def bot(**args):
-    """New message."""
-    pattern = args.get('pattern', None)
-    r_pattern = r'^[/!]'
-    if pattern is not None and not pattern.startswith('(?i)'):
-        args['pattern'] = '(?i)' + pattern
-    args['pattern'] = pattern.replace('^/', r_pattern, 1)
 
-    def decorator(func):
-        dispatcher.add_event_handler(func, events.NewMessage(**args))
-        return func
 
-    return decorator
+
+
+
+
 
     
 
@@ -171,7 +164,6 @@ def bot_help(update, context):
 
 /Execute : Execute sebuah command(python) dengan : ('x', 'ex', 'exe', 'exec', 'py')
 
-/{BotCommands.SongCommand} : testing commit. cari lagu
 '''
     sendMessage(help_string, context.bot, update)
 

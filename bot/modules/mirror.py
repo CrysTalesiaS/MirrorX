@@ -77,7 +77,11 @@ class MirrorListener(listeners.MirrorListeners):
                 )
                 with download_dict_lock:
                     download_dict[self.uid] = ExtractStatus(name, m_path, size)
-                archive_result = subprocess.run(["extract", m_path])
+                pswd = self.pswd
+                if pswd is not None:
+                    archive_result = subprocess.run(["pextract", m_path, pswd])
+                else:
+                    archive_result = subprocess.run(["extract", m_path])
                 if archive_result.returncode == 0:
                     threading.Thread(target=os.remove, args=(m_path,)).start()
                     LOGGER.info(f"Deleting archive : {m_path}")
@@ -198,10 +202,24 @@ class MirrorListener(listeners.MirrorListeners):
 
 def _mirror(bot, update, isTar=False, extract=False):
     message_args = update.message.text.split(' ')
+    name_args = update.message.text.split('|')
     try:
         link = message_args[1]
+        if link.startswith("|") or link.startswith("pswd: "):
+            link = ''
     except IndexError:
         link = ''
+    try:
+        name = name_args[1]
+        name = name.strip()
+        if name.startswith("pswd: "):
+            name = ''
+    except IndexError:
+        name = ''
+    pswd = re.search('(?<=pswd: )(.*)', update.message.text)
+    if pswd is not None:
+      pswd = pswd.groups()
+      pswd = " ".join(pswd)
     LOGGER.info(link)
     link = link.strip()
     reply_to = update.message.reply_to_message
@@ -236,8 +254,7 @@ def _mirror(bot, update, isTar=False, extract=False):
         link = direct_link_generator(link)
     except DirectDownloadLinkException as e:
         LOGGER.info(f'{link}: {e}')
-
-    listener = MirrorListener(bot, update, isTar, tag, extract)
+    listener = MirrorListener(bot, update, isTar, pswd, tag, extract)
     if bot_utils.is_mega_link(link):
         link_type = get_mega_link_type(link)
         if link_type == "folder" and BLOCK_MEGA_FOLDER:

@@ -23,7 +23,7 @@ from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import *
 from .helper.ext_utils.bot_utils import get_readable_file_size, get_readable_time
 from .helper.telegram_helper.filters import CustomFilters
-from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, anime, stickers, search, delete, speedtest, usage
+from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, songs, anime, stickers, search, delete, speedtest, usage
 from bot.modules.alternate import typing_action
 
 now=datetime.now(pytz.timezone('Asia/Jakarta'))
@@ -166,6 +166,10 @@ def bot_help(update, context):
 /wibu: buat nyari anime,manga 
 
 /tolongstiker: buat bikin stiker
+
+/Eval : Eval sebuah code line(python) dengan : ('e', 'ev', 'eva', 'eval')
+
+/Execute : Execute sebuah command(python) dengan : ('x', 'ex', 'exe', 'exec', 'py')
 
 /{BotCommands.SongCommand} : testing commit. cari lagu
 '''

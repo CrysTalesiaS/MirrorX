@@ -25,5 +25,6 @@ class _BotCommands:
         self.SystemstatsCommand= 'System'
         self.WikiCommand= 'wiki'
         self.TotranslateCommand = 'tr'
+        self.PasteCommand = 'Paste'
         
 BotCommands = _BotCommands()

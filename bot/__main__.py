@@ -13,7 +13,6 @@ from sys import executable
 import datetime
 import pytz
 from telethon import events
-from bot import telethon
 from datetime import datetime
 from pyrogram import idle
 from telegram.ext import CommandHandler, run_async
@@ -66,7 +65,7 @@ def bot(**args):
     args['pattern'] = pattern.replace('^/', r_pattern, 1)
 
     def decorator(func):
-        telethn.add_event_handler(func, events.NewMessage(**args))
+        dispatcher.add_event_handler(func, events.NewMessage(**args))
         return func
 
     return decorator

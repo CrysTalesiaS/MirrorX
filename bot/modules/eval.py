@@ -65,14 +65,11 @@ def dev_plus(func):
                 " Kamu gk ada akses buat jalanin nya")
 
     return is_dev_plus_func
-@dev_plus
 @run_async
 def evaluate(update: Update, context: CallbackContext):
     bot = context.bot
     send(do(eval, bot, update), bot, update)
 
-
-@dev_plus
 @run_async
 def execute(update: Update, context: CallbackContext):
     bot = context.bot
@@ -132,7 +129,6 @@ def do(func, bot, update):
             return result
 
 
-@dev_plus
 @run_async
 def clear(update: Update, context: CallbackContext):
     bot = context.bot

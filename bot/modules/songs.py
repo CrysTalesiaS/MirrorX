@@ -47,12 +47,13 @@ async def is_register_admin(chat, user):
 JULIASONG = "@MissJuliaRobotMP3"
 JULIAVSONG = "@MissJuliaRobotMP4"
 
-@bot(pattern="^/lyrics ?(.*)")
-async def download_lyrics(v_url):
+@run_async
+
+async def download_lyrics(v_url), (pattern="^/lyrics ?(.*)") :
     if v_url.is_group:
         if (await is_register_admin(v_url.input_chat, v_url.message.sender_id)):
             pass
-        elif v_url.chat_id == iid and v_url.sender_id == userss:
+          elif v_url.chat_id == iid and v_url.sender_id == userss:
             pass
         else:
             return

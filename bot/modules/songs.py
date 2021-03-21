@@ -85,10 +85,13 @@ file_help = os.path.basename(__file__)
 file_help = file_help.replace(".py", "")
 file_helpo = file_help.replace("_", " ")
 
-__help__ = """
- - /lagu (nama lagu/artist): upload lagu dengan kualitas terbaik
- - /video (nama video/artist): upload video dengan kualitas terbaik
- - /lirik (nama lagu)>: kirim pesan lirik sebuah lagu
+
+@run_async
+def song(update, context):
+  help_string = '''
+ - `/lagu (nama lagu/artist)`*:* upload lagu dengan kualitas terbaik
+ - `/video (nama video/artist)`*:* upload video dengan kualitas terbaik
+ - `/lirik (nama lagu)`*:* kirim pesan lirik sebuah lagu
  
 """
 __mod_name__ = "Music"

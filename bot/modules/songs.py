@@ -93,3 +93,7 @@ file_helpo = file_help.replace("_", " ")
  - `/video (nama video/artist)`*:* upload video dengan kualitas terbaik
  - `/lirik (nama lagu)`*:* kirim pesan lirik sebuah lagu
 '''
+
+download_lyrics = CommandHandler("lirik", lyrics)
+
+dispatcher.add_handler(download_lyrics)

@@ -1,10 +1,11 @@
 from typing import Optional, List
 from telegram import Update
 from telegram.ext import CallbackContext
-from lynda import dispatcher
-from lynda.modules.disable import DisableAbleCommandHandler
+from bot import dispatcher
 import wikipedia
-
+from telegram.ext import CommandHandler
+from bot.helper.telegram_helper.bot_commands import BotCommands
+from bot.helper.telegram_helper.filters import CustomFilters
 
 def wiki(update: Update, context: CallbackContext):
     args = context.args
@@ -23,5 +24,6 @@ __help__ = """
 Returns search from wikipedia for the input text
 """
 __mod_name__ = "Wikipedia"
-WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki, pass_args=True)
+WIKI_HANDLER = CommandHandler(BotCommands.WikiCommand, wiki, 
+                              filters=CustomFilters.authorized_chat, pass_args=True)
 dispatcher.add_handler(WIKI_HANDLER)

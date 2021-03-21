@@ -125,7 +125,7 @@ __help__ = """
 Translates Languages to a desired Language code.
 """
 
-TRANSLATE_HANDLER = BotHandler(BotCommands.TotranslateCommand, totranslate,
+TRANSLATE_HANDLER = CommandHandler(BotCommands.TotranslateCommand, totranslate,
                                filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 
 

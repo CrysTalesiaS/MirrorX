@@ -24,6 +24,7 @@ import os
 import subprocess
 import threading
 from datetime import datetime
+import re
 
 ariaDlManager = AriaDownloadHelper()
 ariaDlManager.start_listener()

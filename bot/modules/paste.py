@@ -2,8 +2,11 @@ import requests
 from telegram import Update, ParseMode
 from telegram.ext import run_async, CallbackContext
 
-from lynda import dispatcher
-from lynda.modules.disable import DisableAbleCommandHandler
+from bot import dispatcher
+
+from telegram.ext import CommandHandler
+from bot.helper.telegram_helper.bot_commands import BotCommands
+from bot.helper.telegram_helper.filters import CustomFilters
 
 
 @run_async
@@ -35,7 +38,8 @@ __help__ = """
 Do a paste at `neko.bin`
 """
 
-PASTE_HANDLER = DisableAbleCommandHandler("paste", paste, pass_args=True)
+PASTE_HANDLER = CommandHandler(BotCommands.PasteCommand, paste, 
+                               filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, pass_args=True)
 dispatcher.add_handler(PASTE_HANDLER)
 
 __mod_name__ = "Paste"

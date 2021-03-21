@@ -88,12 +88,11 @@ file_helpo = file_help.replace("_", " ")
 
 
 @run_async
-def download_lyrics
-  help_string = '''
+  help_string = """
  - `/lagu (nama lagu/artist)`*:* upload lagu dengan kualitas terbaik
  - `/video (nama video/artist)`*:* upload video dengan kualitas terbaik
  - `/lirik (nama lagu)`*:* kirim pesan lirik sebuah lagu
-'''
+"""
 
 download_lyrics = CommandHandler("lirik", lyrics)
 

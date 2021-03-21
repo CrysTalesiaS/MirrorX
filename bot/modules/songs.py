@@ -49,7 +49,7 @@ JULIAVSONG = "@MissJuliaRobotMP4"
 
 @run_async
 
-async def download_lyrics(v_url), (pattern="^/lyrics ?(.*)") :
+async def download_lyrics(v_url), (pattern="^/lyricslyrlyricslyricslyrlyrlyricslyrlyricslyricslyrly
     if v_url.is_group:
         if (await is_register_admin(v_url.input_chat, v_url.message.sender_id)):
             pass

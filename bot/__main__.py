@@ -154,6 +154,8 @@ def bot_help(update, context):
 
 /{BotCommands.UsageCommand}: ngeliat sisa penggunaan bulan ini
 
+/{BotCommands.WikiCommand} : Testing commit. wikipedia search
+
 /tolongturrent: buat nyari link torrent
 
 /wibu: buat nyari anime,manga 

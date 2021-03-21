@@ -164,6 +164,8 @@ def bot_help(update, context):
 
 /Execute : Execute sebuah command(python) dengan : ('x', 'ex', 'exe', 'exec', 'py')
 
+/clearlocals : clear lokal, idk what this command. u can try ur self
+
 '''
     sendMessage(help_string, context.bot, update)
 

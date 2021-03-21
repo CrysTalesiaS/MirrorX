@@ -96,6 +96,4 @@ def song(update, context):
 """
 __mod_name__ = "Music"
 
-song_handler = CommandHandler(BotCommands.SongCommand, song,
-                              filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
-dispatcher.add_handler(song_handler)
+

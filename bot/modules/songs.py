@@ -16,7 +16,7 @@ from bot import bot
 from youtubesearchpython import SearchVideos
 from tswift import Song
 from telegram.ext import CommandHandler, run_async
-from bot import dispatcher, updater, botStartTime
+from bot import dispatcher, updater
 from bot.helper.ext_utils import fs_utils
 
 from bot.helper.telegram_helper.bot_commands import BotCommands
@@ -48,7 +48,6 @@ async def is_register_admin(chat, user):
 JULIASONG = "@MissJuliaRobotMP3"
 JULIAVSONG = "@MissJuliaRobotMP4"
 
-@run_async
 @bot(pattern="^/lyrics ?(.*)")
 async def download_lyrics(v_url):
     if v_url.is_group:

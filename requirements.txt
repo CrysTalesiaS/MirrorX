@@ -32,3 +32,4 @@ pytz
 html
 youtube-search-python
 tswift
+wikipedia

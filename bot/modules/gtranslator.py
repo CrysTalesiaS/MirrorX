@@ -6,7 +6,7 @@ from telegram.ext import run_async, CallbackContext
 from bot import dispatcher
 from telegram.ext import CommandHandler
 from bot.helper.telegram_helper.bot_commands import BotCommands
-from .helper.telegram_helper.filters import CustomFilters
+from bot.helper.telegram_helper.filters import CustomFilters
 
 @run_async
 def totranslate(update: Update, _):

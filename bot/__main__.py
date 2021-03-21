@@ -166,6 +166,8 @@ def bot_help(update, context):
 /wibu: buat nyari anime,manga 
 
 /tolongstiker: buat bikin stiker
+
+/{BotCommands.SongCommand} : testing commit. cari lagu
 '''
     sendMessage(help_string, context.bot, update)
 

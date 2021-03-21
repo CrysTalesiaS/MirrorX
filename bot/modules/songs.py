@@ -92,6 +92,3 @@ def song(update, context):
  - `/lagu (nama lagu/artist)`*:* upload lagu dengan kualitas terbaik
  - `/video (nama video/artist)`*:* upload video dengan kualitas terbaik
  - `/lirik (nama lagu)`*:* kirim pesan lirik sebuah lagu
- 
-
-

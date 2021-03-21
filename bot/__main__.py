@@ -13,7 +13,7 @@ from sys import executable
 import datetime
 import pytz
 from telethon import events
-from bot import telethn
+from bot import telethon
 from datetime import datetime
 from pyrogram import idle
 from telegram.ext import CommandHandler, run_async

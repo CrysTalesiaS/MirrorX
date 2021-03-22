@@ -466,14 +466,14 @@ returns what you're scrobbling on last.fm.
 -> `/app` <app name>
 finds an app in playstore for you
 """
-APP_HANDLER = DisableAbleCommandHandler("app", app)
-UD_HANDLER = DisableAbleCommandHandler("ud", ud)
-COVID_HANDLER = DisableAbleCommandHandler(["covid", "corona"], covid)
-WALL_HANDLER = DisableAbleCommandHandler("wall", wall, pass_args=True)
-CONVERTER_HANDLER = DisableAbleCommandHandler('cash', convert)
-REVERSE_HANDLER = DisableAbleCommandHandler(
+APP_HANDLER = CommandHandler("app", app)
+UD_HANDLER = CommandHandler("ud", ud)
+COVID_HANDLER = CommandHandler(["covid", "corona"], covid)
+WALL_HANDLER = CommandHandler("wall", wall, pass_args=True)
+CONVERTER_HANDLER = CommandHandler('cash', convert)
+REVERSE_HANDLER = CommandHandler(
     "reverse", reverse, pass_args=True, admin_ok=True)
-TTS_HANDLER = DisableAbleCommandHandler('tts', tts, pass_args=True)
+TTS_HANDLER = CommandHandler('tts', tts, pass_args=True)
 
 dispatcher.add_handler(APP_HANDLER)
 dispatcher.add_handler(COVID_HANDLER)

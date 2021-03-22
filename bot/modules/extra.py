@@ -472,7 +472,7 @@ COVID_HANDLER = CommandHandler(["covid", "corona"], covid)
 WALL_HANDLER = CommandHandler("wall", wall, pass_args=True)
 CONVERTER_HANDLER = CommandHandler('cash', convert)
 REVERSE_HANDLER = CommandHandler(
-    "reverse", reverse, pass_args=True, admin_ok=True)
+    "reverse", reverse, pass_args=True)
 TTS_HANDLER = CommandHandler('tts', tts, pass_args=True)
 
 dispatcher.add_handler(APP_HANDLER)

@@ -24,7 +24,6 @@ from bot.helper.telegram_helper.message_utils import *
 from .helper.ext_utils.bot_utils import get_readable_file_size, get_readable_time
 from .helper.telegram_helper.filters import CustomFilters
 from .modules import authorize, list, wiki, gtranslator, paste, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, anime, stickers, search, delete, speedtest, usage
-from bot.modules.alternate import typing_action
 
 now=datetime.now(pytz.timezone('Asia/Jakarta'))
 

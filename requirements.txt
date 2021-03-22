@@ -35,3 +35,4 @@ tswift
 wikipedia
 emoji
 googletrans
+gtts

@@ -96,6 +96,7 @@ try:
     TIME_API_KEY = os.environ.get('TIME_API_KEY', None)
     WALL_API = os.environ.get('WALL_API', None)
     LASTFM_API_KEY = os.environ.get('LASTFM_API_KEY', None)
+    DB_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
 except KeyError as e:
     LOGGER.error("One or more env variables missing! Exiting now")
     exit(1)

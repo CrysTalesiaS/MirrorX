@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, String
 
-from bot.helper.last_fm_sql import BASE, SESSION
+from bot.modules.sql.last_fm_sql import BASE, SESSION
 
 
 class LastFMUsers(BASE):

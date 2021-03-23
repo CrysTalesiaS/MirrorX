@@ -7,7 +7,7 @@ from telegram.ext import run_async, CommandHandler, CallbackContext
 
 from bot import dispatcher, LASTFM_API_KEY
 
-import bot.helper.last_fm_sql as sql
+import bot.modules.sql.last_fm_sql as sql
 
 
 @run_async

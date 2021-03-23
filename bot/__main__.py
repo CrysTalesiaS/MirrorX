@@ -53,17 +53,6 @@ def stats(update, context):
             f'<b>Penyimpanan 🗄️:</b> {disk}%'
     sendMessage(stats, context.bot, update)
 
-
-
-
-
-
-
-
-
-
-    
-
 @run_async
 def start(update, context):
     start_string = f'''
@@ -100,8 +89,7 @@ def log(update, context):
 def systemstats(update, context):
     uname = platform.uname()
     system = platform.system()
-    
-    code = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
+      code = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
              f'<b>Release:</b> <code>' + str(uname.release) + '</code>\n' \

@@ -5,10 +5,9 @@ import requests
 from telegram import Update, ParseMode
 from telegram.ext import run_async, CommandHandler, CallbackContext
 
-from lynda import dispatcher, LASTFM_API_KEY
-from lynda.modules.disable import DisableAbleCommandHandler
+from bot import dispatcher, LASTFM_API_KEY
 
-import lynda.modules.sql.last_fm_sql as sql
+import bot.helper.sql.last_fm_sql as sql
 
 
 @run_async
@@ -89,7 +88,7 @@ __mod_name__ = "Last.FM"
 
 SET_USER_HANDLER = CommandHandler("setuser", set_user, pass_args=True)
 CLEAR_USER_HANDLER = CommandHandler("clearuser", clear_user)
-LASTFM_HANDLER = DisableAbleCommandHandler("lastfm", last_fm)
+LASTFM_HANDLER = CommandHandler("lastfm", last_fm)
 
 dispatcher.add_handler(SET_USER_HANDLER)
 dispatcher.add_handler(CLEAR_USER_HANDLER)

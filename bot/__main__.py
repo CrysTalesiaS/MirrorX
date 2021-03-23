@@ -23,7 +23,8 @@ from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import *
 from .helper.ext_utils.bot_utils import get_readable_file_size, get_readable_time
 from .helper.telegram_helper.filters import CustomFilters
-from .modules import authorize, extra, list, lastfm, wiki, gtranslator, paste, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, anime, stickers, search, delete, speedtest, usage
+from .modules import authorize, list, wiki, gtranslator, paste, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, anime, stickers, search, delete, speedtest, usage
+from bot.modules.alternate import typing_action
 
 now=datetime.now(pytz.timezone('Asia/Jakarta'))
 
@@ -52,6 +53,17 @@ def stats(update, context):
             f'<b>RAM ⛏️:</b> {memory}% ' \
             f'<b>Penyimpanan 🗄️:</b> {disk}%'
     sendMessage(stats, context.bot, update)
+
+
+
+
+
+
+
+
+
+
+    
 
 @run_async
 def start(update, context):
@@ -89,8 +101,8 @@ def log(update, context):
 def systemstats(update, context):
     uname = platform.uname()
     system = platform.system()
-      
-     code = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
+    
+    code = f'<b>======[ SYSTEM INFO ]======</b>\n\n' \
              f'<b>System:</b> <code>' + str(uname.system) + '</code>\n' \
              f'<b>Node name:</b> <code>' + str(uname.node) + '</code>\n' \
              f'<b>Release:</b> <code>' + str(uname.release) + '</code>\n' \
@@ -150,7 +162,6 @@ def bot_help(update, context):
 
 /tolongturrent: buat nyari link torrent
 
-/extrahelp
 /wibu: buat nyari anime,manga 
 
 /tolongstiker: buat bikin stiker

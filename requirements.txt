@@ -36,3 +36,4 @@ wikipedia
 emoji
 googletrans
 gtts
+sqlalchemy

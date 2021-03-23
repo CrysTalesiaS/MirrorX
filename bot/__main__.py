@@ -161,6 +161,7 @@ def bot_help(update, context):
 
 /tolongturrent: buat nyari link torrent
 
+/extrahelp
 /wibu: buat nyari anime,manga 
 
 /tolongstiker: buat bikin stiker

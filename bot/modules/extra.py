@@ -427,7 +427,9 @@ def covid(update: Update, context: CallbackContext):
     message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN)
 
 
-__help__ = """
+run_async
+def extrahelp(update, context):
+    help_string = '''
 ──「 *Corona:* 」──
 -> `/covid`
 To get Global data
@@ -465,7 +467,7 @@ returns what you're scrobbling on last.fm.
 ──「 *Playstore:* 」──
 -> `/app` <app name>
 finds an app in playstore for you
-"""
+'''
 APP_HANDLER = CommandHandler("app", app)
 UD_HANDLER = CommandHandler("ud", ud)
 COVID_HANDLER = CommandHandler(["covid", "corona"], covid)
@@ -474,6 +476,7 @@ CONVERTER_HANDLER = CommandHandler('cash', convert)
 REVERSE_HANDLER = CommandHandler(
     "reverse", reverse, pass_args=True)
 TTS_HANDLER = CommandHandler('tts', tts, pass_args=True)
+EXTRA_HELP = CommandHandler("extrahelp", extrahelp)
 
 dispatcher.add_handler(APP_HANDLER)
 dispatcher.add_handler(COVID_HANDLER)
@@ -482,6 +485,7 @@ dispatcher.add_handler(WALL_HANDLER)
 dispatcher.add_handler(CONVERTER_HANDLER)
 dispatcher.add_handler(TTS_HANDLER)
 dispatcher.add_handler(UD_HANDLER)
+dispatcher.add_handler(EXTRA_HELP)
 
 __mod_name__ = "Extras"
 __command_list__ = [

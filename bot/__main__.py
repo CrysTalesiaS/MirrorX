@@ -117,7 +117,7 @@ def systemstats(update, context):
     update.effective_message.reply_photo("https://telegra.ph/file/b783e7e79d76c7310e79d.jpg", code, parse_mode=ParseMode.MARKDOWN)
     
 @run_async
-def userbot_help(update, context)
+def userbot_help(update, context):
     userbot_string = f'''
 ──「 *Corona:* 」──
 -> `/covid`

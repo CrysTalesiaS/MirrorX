@@ -223,7 +223,28 @@ def mirror_help(update, context):
 '''
     sendMessage(mirror_string, context.bot, update)
 
+@run_async
+async def systemkusystemku(update, context):
+    fetch = await asyncrunapp(
+                "neofetch",
+                "--stdout",
+                stdout=asyncPIPE,
+                stderr=asyncPIPE,
+            )
 
+            stdout, stderr = await fetch.communicate()
+            result = str(stdout.decode().strip()) + str(stderr.decode().strip())
+
+            await sysd.edit("`" + result + "`")
+         except FileNotFoundError:
+            await sysd.edit("`Install neofetch first !!`")
+       context.bot.sendMessage(
+        update.effective_chat.id, code, parse_mode=ParseMode.HTML
+       )
+
+    
+    
+    
 def main():
     fs_utils.start_cleanup()
     # Check if the bot is restarting

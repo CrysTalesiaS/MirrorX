@@ -208,6 +208,8 @@ def mirror_help(update, context):
 
 /{BotCommands.PasteCommand} : Testing Commit. paste a word to neko.bin
 
+/{BotCommands.systemkutestCommand} : testing commit. just show neofetch
+
 /tolongturrent: buat nyari link torrent
 
 /wibu: buat nyari anime,manga 
@@ -224,7 +226,7 @@ def mirror_help(update, context):
     sendMessage(mirror_string, context.bot, update)
 
 @run_async
-async def systemkusystemku(update, context):
+async def systemkutest(update, context):
     fetch = await asyncrunapp(
                 "neofetch",
                 "--stdout",
@@ -241,7 +243,8 @@ async def systemkusystemku(update, context):
        context.bot.sendMessage(
         update.effective_chat.id, code, parse_mode=ParseMode.HTML
        )
-
+systemkutest_handler = CommandHandler(BotCommands.systemkutestCommand, systemkutest,
+                                      filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
     
     
     

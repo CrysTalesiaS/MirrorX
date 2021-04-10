@@ -26,5 +26,6 @@ class _BotCommands:
         self.WikiCommand= 'wiki'
         self.TotranslateCommand = 'tr'
         self.PasteCommand = 'Paste'
+        self.systemkutestCommand = 'neofetch'
         
 BotCommands = _BotCommands()

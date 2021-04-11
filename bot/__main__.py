@@ -234,7 +234,7 @@ async def systemkutest(update, context):
                 stderr=asyncPIPE,
             )
 
-            stdout, stderr = await fetch.communicate()
+            stdout, stderr = fetch.communicate()
             result = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
             await sysd.edit("`" + result + "`")

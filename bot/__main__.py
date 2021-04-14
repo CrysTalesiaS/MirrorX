@@ -32,7 +32,7 @@ _IS_STICKER = True
 
 _DEFAULT = "https://t.me/c/1475139935/22255"
 _CHAT, _MSG_ID = None, None
-_LOGO_ID = https://t.me/c/1475139935/22255
+_LOGO_ID = None
 
 @run_async
 def stats(update, context):
